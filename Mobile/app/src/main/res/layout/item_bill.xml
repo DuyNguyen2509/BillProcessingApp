@@ -16,6 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:fontFamily="@font/poppins_medium"
             android:text="Bill ID 10239103912301"
             android:textColor="#26273a"
             android:textSize="20sp"
@@ -40,10 +41,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/poppins_medium"
                 android:text="25/09/2001 00:00:00"
                 android:textColor="#26273a"
                 android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textStyle="italic" />
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
