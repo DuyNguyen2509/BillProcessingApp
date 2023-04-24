@@ -1,10 +1,11 @@
 {
-  "name": "BillProcessingApp",
-  "description": "Graduation Project",
+  "name": "BillProcessing",
+  "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.20.1]",
     "UiPath.Mail.Activities": "[1.18.2]",
+    "UiPath.PDF.Activities": "[3.14.0]",
     "UiPath.System.Activities": "[23.4.2]",
     "UiPath.Testing.Activities": "[23.4.0]",
     "UiPath.UIAutomation.Activities": "[23.4.4]"
@@ -45,11 +46,11 @@
     "fileInfoCollection": [],
     "modernBehavior": true
   },
-  "expressionLanguage": "CSharp",
+  "expressionLanguage": "VisualBasic",
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "6202ed20-6322-4c73-b7d1-ded3e66f625a",
+      "uniqueId": "8d1d54a5-01ac-4046-b67d-34243a926167",
       "input": [],
       "output": []
     }

@@ -1,0 +1,39 @@
+HÓA ĐƠN
+GIÁ TRỊ GIA TĂNG Ký hiệu: 1C23THT
+Số: 62
+(Bản thể hiện của hóa đơn điện tử)
+Ngày  23 tháng  03 năm  2023
+Mã của cơ quan thuế: 0088A22D87A6DE41CD86C60FA9D7E71C72
+
+CÔNG TY TNHH ĐIỆN TỬ HATAGROUP VIỆT NAM
+Mã số thuế: 0107718107
+Địa chỉ: Số 4F, ngõ 155, phố Ngũ Nhạc, Phường Lĩnh Nam, Quận Hoàng Mai, Thành phố Hà Nội, Việt Nam
+Điện thoại: 0965.833.553 Email: Tax.hatagroup@gmail.com
+Số tài khoản: 2201 0000 781724 - Ngân hàng TMCP Đầu tư và Phát triển Việt Nam - Chi nhánh Thăng Long.
+
+Họ và tên người mua hàng:
+Tên đơn vị: CÔNG TY TNHH GIẢI PHÁP CÔNG NGHỆ NGUỒN POSTEF
+Địa chỉ: Số 63, phố Trần Phú, Phường Điện Biên, Quận Ba Đình, Thành phố Hà Nội, Việt Nam
+Số tài khoản:
+Hình thức thanh toán: TM/CK Mã số thuế: 0101459199
+STT Tên hàng hóa, dịch vụ ĐVT Số lượng Đơn giá Thành tiền
+1 2 3 4 5 6=4x5
+1 Mạch in 2 lớp mạch Giam sat tu 6000w Chiếc 200 26.500 5.300.000
+
+Cộng tiền hàng hoá, dịch vụ: 5.300.000
+Thuế suất GTGT: 10% Tiền thuế GTGT: 530.000
+Tổng tiền thanh toán: 5.830.000
+Số tiền bằng chữ: Năm triệu tám trăm ba mươi nghìn đồng
+
+Người mua hàng
+(Chữ ký điện tử, Chữ ký số)
+Người bán hàng
+(Chữ ký điện tử, Chữ ký số)
+
+Signature Valid
+CÔNG TY TNHH ĐIỆN TỬ
+HATAGROUP VIỆT NAM
+Ngày ký: 23/03/2023 08:17:17
+
+Tra cứu hóa đơn tại website: https://tracuuhoadon.minvoice.vn/ Mã tra cứu: 517A802ABFC74694
+(Khởi tạo từ Phần mềm M-INVOICE - Công ty TNHH Hóa đơn điện tử M-invoice - Chi nhánh Hà Nội - MST: 0106026495-002 - SĐT : 0987570702)
