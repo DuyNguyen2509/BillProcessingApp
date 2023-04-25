@@ -11,16 +11,10 @@
     {
       "Path": "Main.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
-      "ArgumentsSectionElementsOrder": [],
-      "ConstantsSectionElementsOrder": [],
-      "AddedNamespaces": null
-    },
-    {
-      "Path": "DetectText.xaml",
-      "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "invoiceData&Sequence_1",
+        "dataTable&Sequence_3",
+        "selectedFile&Sequence_1",
+        "selectedFolder&Sequence_1",
         "invoiceId&Sequence_1",
         "invoiceDate&Sequence_1",
         "invoiceCompany&Sequence_1",
@@ -29,6 +23,24 @@
         "invoiceTotal&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "DetectText.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "invoiceData&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "filePdf",
+        "invoiceTotal",
+        "invoiceVat",
+        "invoiceSubtotal",
+        "invoiceCompany",
+        "invoiceDate",
+        "invoiceId"
+      ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }

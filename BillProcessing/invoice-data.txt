@@ -1,45 +1,47 @@
-HÓA ĐƠN GIÁ TRỊ GIA TĂNG
-(VAT INVOICE) Ký hiệu (Serial) : 1C22TMQ
-Số (No.) : 84
-Ngày (Date) 19 tháng (month) 04 năm (year) 2022
+HÓA ĐƠN BÁN HÀNG
+(SALE INVOICE)
+Bản thể hiện hóa đơn điện tử
+Ngày (Date) 16 tháng (month) 03  năm (year)  2023
+Ký hiệu (Series): 2C23TAA
+Số (No.): 00000082
 
-Đơn vị bán hàng (Unit sales) : CÔNG TY TNHH MINH QUÂN MQB
-Mã số thuế (Tax code) : 0 3 1 3 4 1 8 5 0 0
-Địa chỉ (Address) : 116/24 Bình Lợi, Phường 13, Quận Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam
-Điện thoại (Tel) : 02862 789 955 Zalo: 0906 39 18 63
-Website : www.mqb.vn Email: mqbketoan@gmail.com
-Số tài khoản (A/C No.) : 20 1111 555 8888 Tại MB bank CN Bắc Sài Gòn
+Mã CQT: 0046725100B746424E8B78A674733BBD58
 
-Họ tên người mua hàng (Name of buyer) :
-Tên đơn vị (Name of company) : Công Ty TNHH Giải Pháp Công Nghệ Nguồn Postef
-Mã số thuế (Tax code) : 0101459199
-Địa chỉ (Address) : Số 63, phố Trần Phú ­ Phường Điện Biên ­ Quận Ba Đình ­ Thành Phố Hà Nội
-Hình thức thanh toán (Payment term) :  Tiền mặt/Chuyển khoản Số tài khoản (A/C No.) :
+Tên hộ kinh doanh : CỬA HÀNG THIẾT BỊ DỤNG CỤ ĐIỆN, ĐIỆN TỬ VIỄN THÔNG NGUYỄN THỊ HƯỜNG
 
-STT TÊN HÀNG HÓA DỊCH VỤ ĐƠN VỊ TÍNH SỐ LƯỢNG ĐƠN GIÁ THÀNH TIỀN
-(No.) (Description) (Unit) (Quantity) (Price of unit) (Sub­Total)
-(1) (2) (3) (4) (5) (6=4x5)
-1 Mạch nguồn 48/12V 1 A Cái 150 68.000 10.200.000
+Mã số thuế : 0101448197
+Địa điểm kinh doanh : Số 104, đường Yên Phụ, phường Nguyễn Trung Trực, quận Ba Đình, thành phố Hà Nội, Việt Nam
+Điện thoại (Phone) : 0388975476 Email: nghuongphuong3010@gmail.com
+Họ tên người mua hàng (Buyer):
+Tên đơn vị (Company): CÔNG TY TNHH GIẢI PHÁP CÔNG NGHỆ NGUỒN POSTEF
+Địa chỉ (Address): 63 Phố Trần Phú, Phường Điện Biên, Quận Ba Đình, TP Hà Nội. Việt Nam
+Số tài khoản (Acc No.):
+Hình thức thanh toán (Payment method): TM/CK Mã số thuế (Tax code): 0101459199
 
-Cộng tiền hàng (Pre­tax Total) : 10.200.000
-Thuế suất GTGT (VAT Rate) : 8% Tiền thuế GTGT (VAT) : 816.000
-Thuế, phí khác (Other fees) : 0
-Tổng cộng tiền thanh toán (Total) : 11.016.000
+STT Tên hàng hóa, dịch vụ  Số lượng Đơn giá Thành tiền
+Đơn vị tính
+(No.) (Description) (Unit) (Quantity) (Price) (Amount)
+1 2 3 4 5 6 = 4 x 5
+1 ATMEGA8L-8PU IC MCU 8-bit 8KB FLASH 28DIP chiếc 250 67.780 16.945.000
+2 Đế IC 28 pin loại nhỏ chiếc 850 1.177 1.000.450
+3 CONN TERMINAL 2P 2EDG5.08-2P chân cong (CON chiếc 650 1.926 1.251.900
+2 xanh)
 
-Số tiền viết bằng chữ (Total in words) : Mười một triệu không trăm mười sáu nghìn đồng
+Tổng cộng tiền thanh toán (Total payment):  19.197.350
 
-Người mua hàng
-(Ký, ghi rõ họ tên)
-(Buyer, sign and full name)
-Người bán hàng
-(Ký, ghi rõ họ tên)
-(Seller, sign and full name)
+Số tiền viết bằng chữ (Words): Mười chín triệu một trăm chín mươi bảy nghìn ba trăm năm mươi đồng
 
-Ký điện tử bởi: CÔNG TY TNHH MINH QUÂN MQB
-Ký ngày 19 tháng 04 năm 2022
+Người mua hàng (Buyer)
+Người bán hàng (Seller)
+(Đã được ký điện tử )
+(Signed digitally)
 
-Trang (page) 1 / 1
-(Cần kiểm tra đối chiếu khi lập, giao, nhận hóa đơn)
-Mã của cơ quan thuế: 0013B5D3A415A9404DBF9B667205E26862
-(Hóa đơn Điện tử được tra cứu trực tuyến tại tracuu.wininvoice.vn , mã tra cứu: KBAB3MRUG2 , mã công ty: 0313418500 )
-(Cung cấp giải pháp hóa đơn điện tử: Công Ty TNHH Win Tech Solution ­ MST: 0312303803 ­ www.win­tech.vn)
+Signature Valid
+Được ký bởi: CỬA HÀNG THIẾT BỊ DỤNG CỤ ĐIỆN,
+ĐIỆN TỬ VIỄN THÔNG NGUYỄN THỊ HƯỜNG
+Ngày ký: 16/03/2023
+
+Mã tra cứu hóa đơn (Invoice code): r6lp49y9qr Trang tra cứu (Search on Website): https://tracuuhoadon.fpt.com.vn/search.html
+(Cần kiểm tra, đối chiếu khi giao và nhận hóa đơn)(Need to check, compare before delivering and receiving invoice)
+Đơn vị cung cấp hóa đơn điện tử: CÔNG TY TNHH HỆ THỐNG THÔNG TIN FPT - MST: 0104128565 - Điện thoại: 1900636191
+Trang 1/1
