@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DetectText" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="850.4,711.2" sap2010:WorkflowViewState.IdRef="DetectText_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DetectText" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="850.4,1104" sap2010:WorkflowViewState.IdRef="DetectText_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -70,29 +70,37 @@
       <AssemblyReference>System.Private.Uri</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DetectText" sap:VirtualizedContainerService.HintSize="449.6,646.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DetectText" sap:VirtualizedContainerService.HintSize="449.6,1039.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Name="invoiceData">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String" Value="" />
-        </Variable.Default>
-      </Variable>
-      <Variable x:TypeArguments="x:String" Name="invoiceId">
-        <Variable.Default>
-          <Literal x:TypeArguments="x:String" Value="" />
-        </Variable.Default>
-      </Variable>
-      <Variable x:TypeArguments="x:String" Name="invoiceDate" />
-      <Variable x:TypeArguments="x:String" Name="invoiceCompany" />
-      <Variable x:TypeArguments="x:String" Name="invoiceSubtotal" />
+      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceData" />
+      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceId" />
+      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceDate" />
+      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceCompany" />
+      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceSubtotal" />
+      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceVat" />
+      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceTotal" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\Users\quang\Downloads\Đồ án\ảnh gốc\1C23THT-62.pdf" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[invoiceData]" />
-    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="invoice-data.txt" sap:VirtualizedContainerService.HintSize="387.2,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[invoiceData]">
+    <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="C:\Users\quang\Downloads\Đồ án\ảnh gốc\ (55).pdf" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="ReadPDFText_1" Range="All" Text="[invoiceData]" />
+    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="invoice-data.txt" sap:VirtualizedContainerService.HintSize="387.2,52.8" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[invoiceData]">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:WriteTextFile>
+    <ui:Matches BuilderPattern="(?&lt;=Ngày\s).*(?:S)|(?&lt;=Ngày\s).*" DisplayName="Invoice Date" FirstMatch="[invoiceDate]" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[invoiceData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Ngày\\s).*(?:S)|(?&lt;=Ngày\\s).*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Ngày\s).*(?:S)|(?&lt;=Ngày\s).*" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches BuilderPattern="(?&lt;=Số:|Số :|\(No\):|\(No.\):|\(No.\) :|\(Invoice No.\) :|\(Invoice No\) :)[\s]+[\d]+" DisplayName="Invoice Number" FirstMatch="[invoiceId]" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[invoiceData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Số:|Số :|\\(No\\):|\\(No.\\):|\\(No.\\) :|\\(Invoice No.\\) :|\\(Invoice No\\) :)[\\s]+[\\d]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Số:|Số :|\(No\):|\(No.\):|\(No.\) :|\(Invoice No.\) :|\(Invoice No\) :)[\s]+[\d]+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches BuilderPattern="CÔNG TY.*|CỬA HÀNG.*|(?&lt;=Đơn vị bán hàng :|\(Sale Company\):|\(ComName\):|\(Company Name\) :|\(Unit sales\) :)[\s]+.*" DisplayName="Invoice Company" FirstMatch="[invoiceCompany]" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[invoiceData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;CÔNG TY.*|CỬA HÀNG.*|(?&lt;=Đơn vị bán hàng :|\\(Sale Company\\):|\\(ComName\\):|\\(Company Name\\) :|\\(Unit sales\\) :)[\\s]+.*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="CÔNG TY.*|CỬA HÀNG.*|(?&lt;=Đơn vị bán hàng :|\(Sale Company\):|\(ComName\):|\(Company Name\) :|\(Unit sales\) :)[\s]+.*" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches BuilderPattern="(?&lt;=Cộng tiền hàng hoá, dịch vụ: |Cộng tiền hàng \(Total amount\): |Cộng tiền hàng : |\(Total before VAT\): |\(Sub total\) : |\(Pre­tax Total\) : )[\d,.]*" DisplayName="Invoice Subtotal" FirstMatch="[invoiceSubtotal]" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[invoiceData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Cộng tiền hàng hoá, dịch vụ: |Cộng tiền hàng \\(Total amount\\): |Cộng tiền hàng : |\\(Total before VAT\\): |\\(Sub total\\) : |\\(Pre­tax Total\\) : )[\\d,.]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Cộng tiền hàng hoá, dịch vụ: |Cộng tiền hàng \(Total amount\): |Cộng tiền hàng : |\(Total before VAT\): |\(Sub total\) : |\(Pre­tax Total\) : )[\d,.]*" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches BuilderPattern="(?&lt;=Tiền thuế GTGT: |Tiền thuế GTGT : |\(VAT amount\): |\(VAT amount\) : |\(VAT\) : )[\d.,]*" DisplayName="Invoice Vat" FirstMatch="[invoiceVat]" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="Matches_5" Input="[invoiceData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Tiền thuế GTGT: |Tiền thuế GTGT : |\\(VAT amount\\): |\\(VAT amount\\) : |\\(VAT\\) : )[\\d.,]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Tiền thuế GTGT: |Tiền thuế GTGT : |\(VAT amount\): |\(VAT amount\) : |\(VAT\) : )[\d.,]*" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches BuilderPattern="(?&lt;=Tổng tiền thanh toán:|\(Total amount\):|\(Total amount\) :|\(Total payment\) :|\(Amount total\) :|\(Total payment\):|Tổng cộng tiền thanh toán:|Tổng cộng tiền thanh toán :|\(Total\) :|Cộng tiền hàng hóa, dịch vụ:)[\s]+[\d.,]*" DisplayName="Invoice Total" FirstMatch="[invoiceTotal]" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[invoiceData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;LIT&quot;,&quot;OperationName&quot;:&quot;Literal&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Tổng tiền thanh toán:|\\(Total amount\\):|\\(Total amount\\) :|\\(Total payment\\) :|\\(Amount total\\) :|\\(Total payment\\):|Tổng cộng tiền thanh toán:|Tổng cộng tiền thanh toán :|\\(Total\\) :|Cộng tiền hàng hóa, dịch vụ:)[\\s]+[\\d.,]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=Tổng tiền thanh toán:|\(Total amount\):|\(Total amount\) :|\(Total payment\) :|\(Amount total\) :|\(Total payment\):|Tổng cộng tiền thanh toán:|Tổng cộng tiền thanh toán :|\(Total\) :|Cộng tiền hàng hóa, dịch vụ:)[\s]+[\d.,]*" RegexOption="IgnoreCase, Compiled" />
+    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="result.txt" sap:VirtualizedContainerService.HintSize="387.2,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_2" Text="[invoiceDate.Replace(&quot;(day)&quot;,&quot;&quot;).Replace(&quot;(date)&quot;,&quot;&quot;).Replace(&quot;(Date)&quot;,&quot;&quot;).Replace(&quot;(month)&quot;,&quot;&quot;).Replace(&quot;(year)&quot;,&quot;&quot;).Replace(&quot;tháng&quot;,&quot;/&quot;).Replace(&quot;năm&quot;,&quot;/&quot;).Replace(&quot;S&quot;,&quot;&quot;).Replace(&quot; &quot;,&quot;&quot;) +&quot; \n &quot;+invoiceId.Trim+&quot; \n &quot;+invoiceCompany.Trim+&quot; \n &quot;+invoiceSubtotal+&quot; \n &quot;+invoiceVat+&quot; \n &quot;+invoiceTotal.Replace(&quot;,&quot;,&quot;.&quot;).Trim]">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -100,8 +108,5 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:WriteTextFile>
-    <ui:Matches DisplayName="Invoke Date" FirstMatch="[invoiceDate]" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="Ngày\s+(\d+)\s+tháng\s+(\d+)\s+năm\s+(\d+)" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoke Number" FirstMatch="[invoiceId]" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=Số:)(\s*)\d+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Find Matching Patterns" FirstMatch="[invoiceCompany]" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="CÔNG TY .*" RegexOption="IgnoreCase, Compiled" />
   </Sequence>
 </Activity>

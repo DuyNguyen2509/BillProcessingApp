@@ -1,39 +1,45 @@
-HÓA ĐƠN
-GIÁ TRỊ GIA TĂNG Ký hiệu: 1C23THT
-Số: 62
-(Bản thể hiện của hóa đơn điện tử)
-Ngày  23 tháng  03 năm  2023
-Mã của cơ quan thuế: 0088A22D87A6DE41CD86C60FA9D7E71C72
+HÓA ĐƠN GIÁ TRỊ GIA TĂNG
+(VAT INVOICE) Ký hiệu (Serial) : 1C22TMQ
+Số (No.) : 84
+Ngày (Date) 19 tháng (month) 04 năm (year) 2022
 
-CÔNG TY TNHH ĐIỆN TỬ HATAGROUP VIỆT NAM
-Mã số thuế: 0107718107
-Địa chỉ: Số 4F, ngõ 155, phố Ngũ Nhạc, Phường Lĩnh Nam, Quận Hoàng Mai, Thành phố Hà Nội, Việt Nam
-Điện thoại: 0965.833.553 Email: Tax.hatagroup@gmail.com
-Số tài khoản: 2201 0000 781724 - Ngân hàng TMCP Đầu tư và Phát triển Việt Nam - Chi nhánh Thăng Long.
+Đơn vị bán hàng (Unit sales) : CÔNG TY TNHH MINH QUÂN MQB
+Mã số thuế (Tax code) : 0 3 1 3 4 1 8 5 0 0
+Địa chỉ (Address) : 116/24 Bình Lợi, Phường 13, Quận Bình Thạnh, Thành phố Hồ Chí Minh, Việt Nam
+Điện thoại (Tel) : 02862 789 955 Zalo: 0906 39 18 63
+Website : www.mqb.vn Email: mqbketoan@gmail.com
+Số tài khoản (A/C No.) : 20 1111 555 8888 Tại MB bank CN Bắc Sài Gòn
 
-Họ và tên người mua hàng:
-Tên đơn vị: CÔNG TY TNHH GIẢI PHÁP CÔNG NGHỆ NGUỒN POSTEF
-Địa chỉ: Số 63, phố Trần Phú, Phường Điện Biên, Quận Ba Đình, Thành phố Hà Nội, Việt Nam
-Số tài khoản:
-Hình thức thanh toán: TM/CK Mã số thuế: 0101459199
-STT Tên hàng hóa, dịch vụ ĐVT Số lượng Đơn giá Thành tiền
-1 2 3 4 5 6=4x5
-1 Mạch in 2 lớp mạch Giam sat tu 6000w Chiếc 200 26.500 5.300.000
+Họ tên người mua hàng (Name of buyer) :
+Tên đơn vị (Name of company) : Công Ty TNHH Giải Pháp Công Nghệ Nguồn Postef
+Mã số thuế (Tax code) : 0101459199
+Địa chỉ (Address) : Số 63, phố Trần Phú ­ Phường Điện Biên ­ Quận Ba Đình ­ Thành Phố Hà Nội
+Hình thức thanh toán (Payment term) :  Tiền mặt/Chuyển khoản Số tài khoản (A/C No.) :
 
-Cộng tiền hàng hoá, dịch vụ: 5.300.000
-Thuế suất GTGT: 10% Tiền thuế GTGT: 530.000
-Tổng tiền thanh toán: 5.830.000
-Số tiền bằng chữ: Năm triệu tám trăm ba mươi nghìn đồng
+STT TÊN HÀNG HÓA DỊCH VỤ ĐƠN VỊ TÍNH SỐ LƯỢNG ĐƠN GIÁ THÀNH TIỀN
+(No.) (Description) (Unit) (Quantity) (Price of unit) (Sub­Total)
+(1) (2) (3) (4) (5) (6=4x5)
+1 Mạch nguồn 48/12V 1 A Cái 150 68.000 10.200.000
 
-Người mua hàng
-(Chữ ký điện tử, Chữ ký số)
-Người bán hàng
-(Chữ ký điện tử, Chữ ký số)
+Cộng tiền hàng (Pre­tax Total) : 10.200.000
+Thuế suất GTGT (VAT Rate) : 8% Tiền thuế GTGT (VAT) : 816.000
+Thuế, phí khác (Other fees) : 0
+Tổng cộng tiền thanh toán (Total) : 11.016.000
 
-Signature Valid
-CÔNG TY TNHH ĐIỆN TỬ
-HATAGROUP VIỆT NAM
-Ngày ký: 23/03/2023 08:17:17
+Số tiền viết bằng chữ (Total in words) : Mười một triệu không trăm mười sáu nghìn đồng
 
-Tra cứu hóa đơn tại website: https://tracuuhoadon.minvoice.vn/ Mã tra cứu: 517A802ABFC74694
-(Khởi tạo từ Phần mềm M-INVOICE - Công ty TNHH Hóa đơn điện tử M-invoice - Chi nhánh Hà Nội - MST: 0106026495-002 - SĐT : 0987570702)
+Người mua hàng
+(Ký, ghi rõ họ tên)
+(Buyer, sign and full name)
+Người bán hàng
+(Ký, ghi rõ họ tên)
+(Seller, sign and full name)
+
+Ký điện tử bởi: CÔNG TY TNHH MINH QUÂN MQB
+Ký ngày 19 tháng 04 năm 2022
+
+Trang (page) 1 / 1
+(Cần kiểm tra đối chiếu khi lập, giao, nhận hóa đơn)
+Mã của cơ quan thuế: 0013B5D3A415A9404DBF9B667205E26862
+(Hóa đơn Điện tử được tra cứu trực tuyến tại tracuu.wininvoice.vn , mã tra cứu: KBAB3MRUG2 , mã công ty: 0313418500 )
+(Cung cấp giải pháp hóa đơn điện tử: Công Ty TNHH Win Tech Solution ­ MST: 0312303803 ­ www.win­tech.vn)

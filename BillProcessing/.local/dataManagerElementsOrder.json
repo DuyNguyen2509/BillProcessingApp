@@ -11,12 +11,22 @@
     {
       "Path": "Main.xaml",
       "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "DetectText.xaml",
+      "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "invoiceSubtotal&Sequence_1",
-        "invoiceCompany&Sequence_1",
-        "invoiceDate&Sequence_1",
+        "invoiceData&Sequence_1",
         "invoiceId&Sequence_1",
-        "invoiceData&Sequence_1"
+        "invoiceDate&Sequence_1",
+        "invoiceCompany&Sequence_1",
+        "invoiceSubtotal&Sequence_1",
+        "invoiceVat&Sequence_1",
+        "invoiceTotal&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
