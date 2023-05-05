@@ -4,6 +4,7 @@
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.20.1]",
+    "UiPath.Form.Activities": "[23.4.1-preview]",
     "UiPath.Mail.Activities": "[1.18.2]",
     "UiPath.PDF.Activities": "[3.14.0]",
     "UiPath.System.Activities": "[23.4.2]",

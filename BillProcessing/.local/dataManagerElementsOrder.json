@@ -12,34 +12,65 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "dataTable&Sequence_3",
-        "selectedFile&Sequence_1",
-        "selectedFolder&Sequence_1",
-        "invoiceId&Sequence_1",
+        "invoiceTaxCode&Sequence_1",
         "invoiceDate&Sequence_1",
         "invoiceCompany&Sequence_1",
         "invoiceSubtotal&Sequence_1",
         "invoiceVat&Sequence_1",
-        "invoiceTotal&Sequence_1"
+        "invoiceTotal&Sequence_1",
+        "selectedFolder&Sequence_1",
+        "str&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     },
     {
-      "Path": "DetectText.xaml",
+      "Path": "DetectText/DetectTextForPdf.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "s&Sequence_1",
         "invoiceData&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "invoiceTaxCode",
         "filePdf",
         "invoiceTotal",
         "invoiceVat",
         "invoiceSubtotal",
         "invoiceCompany",
+        "invoiceDate"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Demo.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "DetectText/DetectTextForImg.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "s&Sequence_1",
+        "year&Sequence_1",
+        "month&Sequence_1",
+        "day&Sequence_1",
+        "invoiceData&Sequence_1",
+        "img&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "fileImage",
         "invoiceDate",
-        "invoiceId"
+        "invoiceSubtotal",
+        "invoiceVat",
+        "invoiceTotal",
+        "invoiceTaxCode",
+        "invoiceCompany"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

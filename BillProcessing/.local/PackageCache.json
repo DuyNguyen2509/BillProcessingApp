@@ -89,6 +89,28 @@
     },
     {
       "Package": {
+        "Id": "UiPath.PDF.Activities",
+        "Version": "3.14.0"
+      },
+      "Assemblies": [
+        "C:\\Users\\quang\\.nuget\\packages\\bitmiracle.docotic.pdf\\8.8.14512-dev\\lib/netstandard2.0/BitMiracle.Docotic.Pdf.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\bitmiracle.libtiff.net\\2.4.649\\lib/netstandard2.0/BitMiracle.LibTiff.NET.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\newtonsoft.json\\13.0.1\\lib/netstandard2.0/Newtonsoft.Json.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\ntextcat\\0.3.65\\lib/netstandard2.0/NTextCat.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\system.io.abstractions\\3.0.10\\lib/netstandard2.0/System.IO.Abstractions.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.documentprocessing.contracts\\1.21.0\\lib/net6.0/UiPath.DocumentProcessing.Contracts.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.documentunderstanding.digitizer\\3.2.0\\lib/net6.0/UiPath.DocumentUnderstanding.Digitizer.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.ocr.contracts\\2.14.0\\lib/net6.0-windows7.0/UiPath.OCR.Contracts.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib/net6.0-windows7.0/UiPath.PDF.Activities.Design.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib/net6.0-windows7.0/UiPath.PDF.Activities.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib/net6.0-windows7.0/UiPath.PDF.Telemetry.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib/net6.0-windows7.0/UiPath.PDF.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.telemetry.client\\1.5.3\\lib/netstandard2.0/TelemetryClient.dll"
+      ],
+      "Path": "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0"
+    },
+    {
+      "Package": {
         "Id": "UiPath.System.Activities",
         "Version": "23.4.2"
       },
@@ -236,25 +258,23 @@
     },
     {
       "Package": {
-        "Id": "UiPath.PDF.Activities",
-        "Version": "3.14.0"
+        "Id": "UiPath.Form.Activities",
+        "Version": "23.4.1-preview"
       },
       "Assemblies": [
-        "C:\\Users\\quang\\.nuget\\packages\\bitmiracle.docotic.pdf\\8.8.14512-dev\\lib/netstandard2.0/BitMiracle.Docotic.Pdf.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\bitmiracle.libtiff.net\\2.4.649\\lib/netstandard2.0/BitMiracle.LibTiff.NET.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\microsoft.web.webview2\\1.0.1462.37\\lib/netcoreapp3.0/Microsoft.Web.WebView2.Core.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\microsoft.web.webview2\\1.0.1462.37\\lib/netcoreapp3.0/Microsoft.Web.WebView2.WinForms.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\microsoft.web.webview2\\1.0.1462.37\\lib/netcoreapp3.0/Microsoft.Web.WebView2.Wpf.dll",
         "C:\\Users\\quang\\.nuget\\packages\\newtonsoft.json\\13.0.1\\lib/netstandard2.0/Newtonsoft.Json.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\ntextcat\\0.3.65\\lib/netstandard2.0/NTextCat.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\system.activities.viewmodels\\1.0.0-20230306.1\\lib/net5.0-windows7.0/System.Activities.ViewModels.dll",
         "C:\\Users\\quang\\.nuget\\packages\\system.io.abstractions\\3.0.10\\lib/netstandard2.0/System.IO.Abstractions.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\uipath.documentprocessing.contracts\\1.21.0\\lib/net6.0/UiPath.DocumentProcessing.Contracts.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\uipath.documentunderstanding.digitizer\\3.2.0\\lib/net6.0/UiPath.DocumentUnderstanding.Digitizer.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\uipath.ocr.contracts\\2.14.0\\lib/net6.0-windows7.0/UiPath.OCR.Contracts.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib/net6.0-windows7.0/UiPath.PDF.Activities.Design.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib/net6.0-windows7.0/UiPath.PDF.Activities.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib/net6.0-windows7.0/UiPath.PDF.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib/net6.0-windows7.0/UiPath.PDF.Telemetry.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.form.activities\\23.4.1-preview\\lib/net6.0-windows7.0/UiPath.Forms.Activities.Design.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.form.activities\\23.4.1-preview\\lib/net6.0-windows7.0/UiPath.Forms.Activities.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.platform\\23.4.1\\lib/net6.0-windows7.0/UiPath.Platform.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.studio.forms.runtime\\23.4.1-preview\\lib/net6.0-windows7.0/UiPath.Studio.Forms.Runtime.dll",
         "C:\\Users\\quang\\.nuget\\packages\\uipath.telemetry.client\\1.5.3\\lib/netstandard2.0/TelemetryClient.dll"
       ],
-      "Path": "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0"
+      "Path": "C:\\Users\\quang\\.nuget\\packages\\uipath.form.activities\\23.4.1-preview"
     }
   ],
   "Conflicts": [],
@@ -1179,6 +1199,11 @@
     "Microsoft.VisualStudio.OLE.Interop": {
       "Id": "Microsoft.VisualStudio.OLE.Interop",
       "Version": "16.7.30328.74",
+      "Dependencies": []
+    },
+    "Microsoft.Web.WebView2": {
+      "Id": "Microsoft.Web.WebView2",
+      "Version": "1.0.1462.37",
       "Dependencies": []
     },
     "Microsoft.Win32.Primitives": {
@@ -4494,6 +4519,28 @@
         }
       ]
     },
+    "UiPath.Form.Activities": {
+      "Id": "UiPath.Form.Activities",
+      "Version": "23.4.1-preview",
+      "Dependencies": [
+        {
+          "Item1": "UiPath.Studio.Forms.Runtime",
+          "Item2": "[23.4.1-preview, )"
+        },
+        {
+          "Item1": "System.Activities.ViewModels",
+          "Item2": "[1.0.0-20230306.1, )"
+        },
+        {
+          "Item1": "UiPath.Platform",
+          "Item2": "[23.4.1, )"
+        },
+        {
+          "Item1": "UiPath.Telemetry.Client",
+          "Item2": "[1.5.3, )"
+        }
+      ]
+    },
     "UiPath.ImageProcessing": {
       "Id": "UiPath.ImageProcessing",
       "Version": "23.4.0",
@@ -4682,6 +4729,24 @@
         {
           "Item1": "System.ValueTuple",
           "Item2": "[4.5.0, )"
+        }
+      ]
+    },
+    "UiPath.Studio.Forms.Runtime": {
+      "Id": "UiPath.Studio.Forms.Runtime",
+      "Version": "23.4.1-preview",
+      "Dependencies": [
+        {
+          "Item1": "Microsoft.Web.WebView2",
+          "Item2": "[1.0.1462.37, )"
+        },
+        {
+          "Item1": "System.IO.Abstractions",
+          "Item2": "[3.0.10, )"
+        },
+        {
+          "Item1": "UiPath.Platform",
+          "Item2": "[23.4.1, )"
         }
       ]
     },
@@ -5633,6 +5698,18 @@
         "C:\\Users\\quang\\.nuget\\packages\\microsoft.visualstudio.ole.interop\\16.7.30328.74\\lib\\netstandard2.0\\Microsoft.VisualStudio.OLE.Interop.dll"
       ],
       "Path": "C:\\Users\\quang\\.nuget\\packages\\microsoft.visualstudio.ole.interop\\16.7.30328.74"
+    },
+    {
+      "Package": {
+        "Id": "Microsoft.Web.WebView2",
+        "Version": "1.0.1462.37"
+      },
+      "Assemblies": [
+        "C:\\Users\\quang\\.nuget\\packages\\microsoft.web.webview2\\1.0.1462.37\\lib\\netcoreapp3.0\\Microsoft.Web.WebView2.Core.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\microsoft.web.webview2\\1.0.1462.37\\lib\\netcoreapp3.0\\Microsoft.Web.WebView2.WinForms.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\microsoft.web.webview2\\1.0.1462.37\\lib\\netcoreapp3.0\\Microsoft.Web.WebView2.Wpf.dll"
+      ],
+      "Path": "C:\\Users\\quang\\.nuget\\packages\\microsoft.web.webview2\\1.0.1462.37"
     },
     {
       "Package": {
@@ -7252,6 +7329,17 @@
     },
     {
       "Package": {
+        "Id": "UiPath.Form.Activities",
+        "Version": "23.4.1-preview"
+      },
+      "Assemblies": [
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.form.activities\\23.4.1-preview\\lib\\net6.0-windows7.0\\UiPath.Forms.Activities.Design.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.form.activities\\23.4.1-preview\\lib\\net6.0-windows7.0\\UiPath.Forms.Activities.dll"
+      ],
+      "Path": "C:\\Users\\quang\\.nuget\\packages\\uipath.form.activities\\23.4.1-preview"
+    },
+    {
+      "Package": {
         "Id": "UiPath.ImageProcessing",
         "Version": "23.4.0"
       },
@@ -7307,8 +7395,8 @@
       "Assemblies": [
         "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib\\net6.0-windows7.0\\UiPath.PDF.Activities.Design.dll",
         "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib\\net6.0-windows7.0\\UiPath.PDF.Activities.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib\\net6.0-windows7.0\\UiPath.PDF.dll",
-        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib\\net6.0-windows7.0\\UiPath.PDF.Telemetry.dll"
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib\\net6.0-windows7.0\\UiPath.PDF.Telemetry.dll",
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0\\lib\\net6.0-windows7.0\\UiPath.PDF.dll"
       ],
       "Path": "C:\\Users\\quang\\.nuget\\packages\\uipath.pdf.activities\\3.14.0"
     },
@@ -7321,6 +7409,16 @@
         "C:\\Users\\quang\\.nuget\\packages\\uipath.platform\\23.4.1\\lib\\net6.0-windows7.0\\UiPath.Platform.dll"
       ],
       "Path": "C:\\Users\\quang\\.nuget\\packages\\uipath.platform\\23.4.1"
+    },
+    {
+      "Package": {
+        "Id": "UiPath.Studio.Forms.Runtime",
+        "Version": "23.4.1-preview"
+      },
+      "Assemblies": [
+        "C:\\Users\\quang\\.nuget\\packages\\uipath.studio.forms.runtime\\23.4.1-preview\\lib\\net6.0-windows7.0\\UiPath.Studio.Forms.Runtime.dll"
+      ],
+      "Path": "C:\\Users\\quang\\.nuget\\packages\\uipath.studio.forms.runtime\\23.4.1-preview"
     },
     {
       "Package": {
