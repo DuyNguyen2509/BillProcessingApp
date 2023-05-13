@@ -1,0 +1,78 @@
+﻿{
+  "Metadata": {
+    "Id": "a1a484ab-8574-4f49-b086-9cdc3eaa71d2",
+    "Kind": "FormIo"
+  },
+  "DesignProperties": {
+    "Title": "ValidationInvoice",
+    "Theme": "Default",
+    "ShowInTaskbar": true,
+    "ShowMargin": true,
+    "CustomStyle": ""
+  },
+  "Data": {
+    "components": [
+      {
+        "label": "Ngày",
+        "placeholder": "Ngày tạo hóa đơn",
+        "displayMask": "99/99/9999",
+        "tableView": true,
+        "key": "Date",
+        "type": "textfield",
+        "input": true
+      },
+      {
+        "label": "Mã số thuế",
+        "placeholder": "Mã số thuế",
+        "tableView": true,
+        "validate": {
+          "required": true
+        },
+        "key": "TaxCode",
+        "type": "textfield",
+        "input": true
+      },
+      {
+        "label": "Đơn vị kinh doanh",
+        "placeholder": "Đơn vị kinh doanh",
+        "tableView": true,
+        "key": "Company",
+        "type": "textfield",
+        "input": true
+      },
+      {
+        "label": "Tổng tiền hàng hóa, dịch vụ",
+        "placeholder": "Tổng tiền hàng hóa, dịch vụ",
+        "tableView": true,
+        "key": "SubTotal",
+        "type": "textfield",
+        "input": true
+      },
+      {
+        "label": "Thuế",
+        "placeholder": "Thuế",
+        "tableView": true,
+        "key": "Vat",
+        "type": "textfield",
+        "input": true
+      },
+      {
+        "label": "Total",
+        "placeholder": "Total",
+        "tableView": true,
+        "key": "Total",
+        "type": "textfield",
+        "input": true
+      },
+      {
+        "label": "Submit",
+        "theme": "info",
+        "tableView": false,
+        "key": "submit",
+        "type": "button",
+        "input": true,
+        "saveOnEnter": false
+      }
+    ]
+  }
+}

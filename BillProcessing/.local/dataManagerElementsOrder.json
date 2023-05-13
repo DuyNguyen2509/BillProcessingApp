@@ -12,9 +12,14 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "bytes&Sequence_2",
+        "invoiceFile&Sequence_2",
+        "invoiceSellerName&Sequence_1",
+        "dbConnection&Sequence_1",
+        "data&Sequence_1",
+        "invoiceNumber&Sequence_1",
         "invoiceTaxCode&Sequence_1",
         "invoiceDate&Sequence_1",
-        "invoiceCompany&Sequence_1",
         "invoiceSubtotal&Sequence_1",
         "invoiceVat&Sequence_1",
         "invoiceTotal&Sequence_1",
@@ -29,16 +34,19 @@
       "Path": "DetectText/DetectTextForPdf.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "s&Sequence_1",
+        "year&Sequence_1",
+        "month&Sequence_1",
+        "day&Sequence_1",
         "invoiceData&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "invoiceSellerName",
+        "invoiceNumber",
         "invoiceTaxCode",
         "filePdf",
         "invoiceTotal",
         "invoiceVat",
         "invoiceSubtotal",
-        "invoiceCompany",
         "invoiceDate"
       ],
       "ConstantsSectionElementsOrder": [],
@@ -56,7 +64,6 @@
       "Path": "DetectText/DetectTextForImg.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "s&Sequence_1",
         "year&Sequence_1",
         "month&Sequence_1",
         "day&Sequence_1",
@@ -64,13 +71,14 @@
         "img&Sequence_1"
       ],
       "ArgumentsSectionElementsOrder": [
+        "invoiceSellerName",
+        "invoiceNumber",
         "fileImage",
         "invoiceDate",
         "invoiceSubtotal",
         "invoiceVat",
         "invoiceTotal",
-        "invoiceTaxCode",
-        "invoiceCompany"
+        "invoiceTaxCode"
       ],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

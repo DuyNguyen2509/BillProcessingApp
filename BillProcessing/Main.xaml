@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="844,1344" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="844,1737.6" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System.ComponentModel.TypeConverter" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ufa="clr-namespace:UiPath.Forms.Activities;assembly=UiPath.Forms.Activities" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
       <x:String>System.Activities</x:String>
@@ -53,6 +53,12 @@
       <x:String>UiPath.Forms.Activities.Base</x:String>
       <x:String>System.Threading.Tasks</x:String>
       <x:String>UiPath.Form.Activities</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>UiPath.Database</x:String>
+      <x:String>UiPath.Database.Activities</x:String>
+      <x:String>UiPathTeam.EncodeActivities.Enums</x:String>
+      <x:String>UiPathTeam.EncodeActivities.Activities</x:String>
+      <x:String>System.Text</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -128,6 +134,12 @@
       <AssemblyReference>UiPath.Vision.Core</AssemblyReference>
       <AssemblyReference>System.Threading.Tasks.Parallel</AssemblyReference>
       <AssemblyReference>UiPath.Form.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.InteropServices</AssemblyReference>
+      <AssemblyReference>UiPath.Database</AssemblyReference>
+      <AssemblyReference>UiPath.Database.Activities</AssemblyReference>
+      <AssemblyReference>UiPathTeam.EncodeActivities</AssemblyReference>
+      <AssemblyReference>UiPathTeam.EncodeActivities.Activities</AssemblyReference>
+      <AssemblyReference>System.Text.Encoding.CodePages</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <sap:WorkflowViewStateService.ViewState>
@@ -136,63 +148,127 @@
       <x:Boolean x:Key="ShouldCollapseAll">False</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="685.6,1279.2" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="685.6,1672.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
-      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceTaxCode" />
-      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceDate" />
-      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceCompany" />
-      <Variable x:TypeArguments="x:String" Name="invoiceSubtotal" />
-      <Variable x:TypeArguments="x:String" Name="invoiceVat" />
-      <Variable x:TypeArguments="x:String" Default=" " Name="invoiceTotal" />
-      <Variable x:TypeArguments="x:String" Default="C:\Users\quang\Downloads\2" Name="selectedFolder" />
+      <Variable x:TypeArguments="x:String" Name="invoiceTaxCode">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="invoiceDate">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="invoiceSellerName">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="invoiceSubtotal">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="invoiceVat">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Name="invoiceTotal">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="x:String" Default="C:\Users\quang\Downloads\1" Name="selectedFolder" />
       <Variable x:TypeArguments="x:String" Default=" " Name="str" />
+      <Variable x:TypeArguments="x:String" Name="invoiceNumber">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:String" Value="" />
+        </Variable.Default>
+      </Variable>
+      <Variable x:TypeArguments="sd:DataTable" Name="data" />
+      <Variable x:TypeArguments="ui:DatabaseConnection" Name="dbConnection" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="623.2,1167.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(selectedFolder)]">
+    <ui:BuildDataTable DataTable="[data]" DisplayName="Build Data Table" sap:VirtualizedContainerService.HintSize="623.2,60" sap2010:WorkflowViewState.IdRef="BuildDataTable_1" TableInfo="&lt;NewDataSet&gt;&#xA;  &lt;xs:schema id=&quot;NewDataSet&quot; xmlns=&quot;&quot; xmlns:xs=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:msdata=&quot;urn:schemas-microsoft-com:xml-msdata&quot;&gt;&#xA;    &lt;xs:element name=&quot;NewDataSet&quot; msdata:IsDataSet=&quot;true&quot; msdata:MainDataTable=&quot;TableName&quot; msdata:UseCurrentLocale=&quot;true&quot;&gt;&#xA;      &lt;xs:complexType&gt;&#xA;        &lt;xs:choice minOccurs=&quot;0&quot; maxOccurs=&quot;unbounded&quot;&gt;&#xA;          &lt;xs:element name=&quot;TableName&quot;&gt;&#xA;            &lt;xs:complexType&gt;&#xA;              &lt;xs:sequence&gt;&#xA;                &lt;xs:element name=&quot;InvoiceNumber&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;InvoiceDate&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;TaxCode&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;SellerName&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;SubTotal&quot; msdata:Caption=&quot;&quot; type=&quot;xs:long&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Vat&quot; msdata:Caption=&quot;&quot; type=&quot;xs:long&quot; /&gt;&#xA;                &lt;xs:element name=&quot;Total&quot; msdata:Caption=&quot;&quot; type=&quot;xs:long&quot; minOccurs=&quot;0&quot; /&gt;&#xA;                &lt;xs:element name=&quot;FileInvoice&quot; msdata:Caption=&quot;&quot; type=&quot;xs:string&quot; minOccurs=&quot;0&quot; /&gt;&#xA;              &lt;/xs:sequence&gt;&#xA;            &lt;/xs:complexType&gt;&#xA;          &lt;/xs:element&gt;&#xA;        &lt;/xs:choice&gt;&#xA;      &lt;/xs:complexType&gt;&#xA;    &lt;/xs:element&gt;&#xA;  &lt;/xs:schema&gt;&#xA;&lt;/NewDataSet&gt;" />
+    <ui:DatabaseConnect DisplayName="Connect to database" sap:VirtualizedContainerService.HintSize="623.2,60" sap2010:WorkflowViewState.IdRef="DatabaseConnect_1" ProviderName="Microsoft.Data.SqlClient" ConnectionString="Data Source=LAPTOP-3TQ64FLK\SQLEXPRESS;Initial Catalog=InvocieManagementDB;Integrated Security=True;Encrypt=False" DatabaseConnection="[dbConnection]" />
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="623.2,1203.2" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[Directory.GetFiles(selectedFolder)]">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="file" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="589.6,979.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476.8,1015.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="x:String" Name="invoiceFile">
+                <Variable.Default>
+                  <Literal x:TypeArguments="x:String" Value="" />
+                </Variable.Default>
+              </Variable>
+              <Variable x:TypeArguments="s:Byte[]" Name="bytes" />
+            </Sequence.Variables>
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="546.4,488" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+              <Assign.To>
+                <OutArgument x:TypeArguments="s:Byte[]">[bytes]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="s:Byte[]">[System.IO.File.ReadAllBytes(file)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_4">
+              <Assign.To>
+                <OutArgument x:TypeArguments="x:String">[invoiceFile]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="x:String">[Convert.ToBase64String(bytes)]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
               <ui:IfElseIf.ConditionBlocks>
                 <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
                   <ui:IfElseIfBlock BlockType="If" Condition="[file.Contains(&quot;pdf&quot;)]">
                     <ui:IfElseIfBlock.Then>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="449.6,83.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="496,347.2" sap2010:WorkflowViewState.IdRef="Sequence_11">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             <x:Boolean x:Key="IsPinned">False</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
                         <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="DetectTextForPdf.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="433.6,113.6" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="DetectText\DetectTextForPdf.xaml">
                           <ui:InvokeWorkflowFile.Arguments>
-                            <OutArgument x:TypeArguments="x:String" x:Key="invoiceTaxCode">[invoiceTaxCode]</OutArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="invoiceDate">[invoiceDate]</OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="invoiceCompany">[invoiceCompany]</OutArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="invoiceSubtotal">[invoiceSubtotal]</OutArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="invoiceVat">[invoiceVat]</OutArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="invoiceTotal">[invoiceTotal]</OutArgument>
                             <InArgument x:TypeArguments="x:String" x:Key="filePdf">[file]</InArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="invoiceTaxCode">[invoiceTaxCode]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="invoiceNumber">[invoiceNumber]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="invoiceSellerName">[invoiceSellerName]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
                         </ui:InvokeWorkflowFile>
                         <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[str]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[str+Environment.NewLine+"PDF"+Environment.NewLine +"TaxCode: " + invoiceTaxCode.Trim+Environment.NewLine+"Ngày:  "+invoiceDate.Replace("(day)","").Replace("(date)","").Replace("S","").Replace("(year)","").Replace("(month)","").Replace("(Date)","").Replace("tháng","/").Replace("năm","/").Replace(" ","").Replace("  ","")+Environment.NewLine+"Seller:  "+invoiceCompany+Environment.NewLine+"Thành tiền: "+invoiceSubtotal+Environment.NewLine+"VAT:  "+invoiceVat+Environment.NewLine+" Total: "+invoiceTotal.Trim]</InArgument>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[str+Environment.NewLine+"PDF"+Environment.NewLine +"Number: "+ invoiceNumber+Environment.NewLine +"TaxCode: "+ invoiceTaxCode.Trim+Environment.NewLine+"Ngày:  "+invoiceDate+Environment.NewLine+"Seller:  "+invoiceSellerName+Environment.NewLine+"Thành tiền: "+invoiceSubtotal+Environment.NewLine+"VAT:  "+invoiceVat+Environment.NewLine+" Total: "+invoiceTotal.Trim]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </Sequence>
@@ -215,15 +291,16 @@
                             <OutArgument x:TypeArguments="x:String" x:Key="invoiceVat">[invoiceVat]</OutArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="invoiceTotal">[invoiceTotal]</OutArgument>
                             <OutArgument x:TypeArguments="x:String" x:Key="invoiceTaxCode">[invoiceTaxCode]</OutArgument>
-                            <OutArgument x:TypeArguments="x:String" x:Key="invoiceCompany">[invoiceCompany]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="invoiceNumber">[invoiceNumber]</OutArgument>
+                            <OutArgument x:TypeArguments="x:String" x:Key="invoiceSellerName">[invoiceSellerName]</OutArgument>
                           </ui:InvokeWorkflowFile.Arguments>
                         </ui:InvokeWorkflowFile>
-                        <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_1">
                           <Assign.To>
                             <OutArgument x:TypeArguments="x:String">[str]</OutArgument>
                           </Assign.To>
                           <Assign.Value>
-                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[str+Environment.NewLine+Environment.NewLine+"Image"+Environment.NewLine  +"TaxCode: " + invoiceTaxCode.Replace("#","0")+Environment.NewLine+"Ngày:  "+invoiceDate.Replace("l","1").Replace("I","1")+Environment.NewLine+"Seller:  "+invoiceCompany+Environment.NewLine+"Thành tiền: "+invoiceSubtotal+Environment.NewLine+"VAT:  "+invoiceVat+Environment.NewLine+" Total: "+invoiceTotal+Environment.NewLine]</InArgument>
+                            <InArgument x:TypeArguments="x:String" xml:space="preserve">[str+Environment.NewLine+Environment.NewLine+"Image"+Environment.NewLine  +"TaxCode: " + invoiceTaxCode.Replace("#","0")+Environment.NewLine+"Ngày:  "+invoiceDate.Replace("l","1").Replace("I","1")+Environment.NewLine+"Seller:  "+invoiceSellerName+Environment.NewLine+"Thành tiền: "+invoiceSubtotal+Environment.NewLine+"VAT:  "+invoiceVat+Environment.NewLine+" Total: "+invoiceTotal+Environment.NewLine]</InArgument>
                           </Assign.Value>
                         </Assign>
                       </Sequence>
@@ -231,13 +308,18 @@
                   </ui:IfElseIfBlock>
                 </sc:BindingList>
               </ui:IfElseIf.ConditionBlocks>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
             </ui:IfElseIf>
-            <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="UnitTest\result.txt" sap:VirtualizedContainerService.HintSize="546.4,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[str]" />
-            <ufa:ShowFormActivity InstanceName="{x:Null}" Left="{x:Null}" Top="{x:Null}" DisplayName="Show Form" FormId="a1a484ab-8574-4f49-b086-9cdc3eaa71d2" sap:VirtualizedContainerService.HintSize="546.4,187.2" sap2010:WorkflowViewState.IdRef="ShowFormActivity_1" IsAsync="True" Title="Validation Invoice" WindowState="[UiPath.Studio.Forms.Runtime.WindowState.Minimized]">
+            <ufa:ShowFormActivity InstanceName="{x:Null}" Left="{x:Null}" Top="{x:Null}" DisplayName="Show Form" FormId="a1a484ab-8574-4f49-b086-9cdc3eaa71d2" sap:VirtualizedContainerService.HintSize="433.6,187.2" sap2010:WorkflowViewState.IdRef="ShowFormActivity_1" IsAsync="True" Title="Validation Invoice" WindowState="[UiPath.Studio.Forms.Runtime.WindowState.Minimized]">
               <ufa:ShowFormActivity.Arguments>
                 <InArgument x:TypeArguments="x:String" x:Key="Date">[invoiceDate]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="TaxCode">[invoiceTaxCode]</InArgument>
-                <InArgument x:TypeArguments="x:String" x:Key="Seller">[invoiceCompany]</InArgument>
+                <InArgument x:TypeArguments="x:String" x:Key="Seller">[invoiceSellerName]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="SubTotal">[invoiceSubtotal]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="Vat">[invoiceVat]</InArgument>
                 <InArgument x:TypeArguments="x:String" x:Key="Total">[invoiceTotal]</InArgument>
@@ -262,12 +344,27 @@
                   <Literal x:TypeArguments="s:Nullable(x:Boolean)" Value="False" />
                 </InArgument>
               </ufa:ShowFormActivity.TopMost>
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
               <ufa:ShowFormActivity.Width>
                 <InArgument x:TypeArguments="s:Nullable(x:Int32)">
                   <Literal x:TypeArguments="s:Nullable(x:Int32)" Value="800" />
                 </InArgument>
               </ufa:ShowFormActivity.Width>
             </ufa:ShowFormActivity>
+            <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="UnitTest\result.txt" sap:VirtualizedContainerService.HintSize="433.6,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[str]">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+            </ui:WriteTextFile>
+            <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{ invoiceNumber.Replace(&quot; &quot;,&quot;&quot;), invoiceDate.Replace(&quot;l&quot;,&quot;1&quot;).Replace(&quot;I&quot;,&quot;1&quot;).Replace(&quot; &quot;,&quot;&quot;), invoiceTaxCode.Replace(&quot;#&quot;,&quot;0&quot;).Replace(&quot; &quot;,&quot;&quot;), invoiceSellerName.Replace(&quot;\n&quot;,&quot;&quot;), invoiceSubtotal.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot; &quot;,&quot;&quot;), invoiceVat.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot; &quot;,&quot;&quot;), invoiceTotal.Replace(&quot;,&quot;,&quot;&quot;).Replace(&quot;.&quot;,&quot;&quot;).Replace(&quot; &quot;,&quot;&quot;), invoiceFile}]" DataTable="[data]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="433.6,188" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
           </Sequence>
         </ActivityAction>
       </ui:ForEach.Body>
@@ -278,5 +375,17 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
     </ui:ForEach>
+    <ui:ExecuteQuery ContinueOnError="{x:Null}" DataTable="{x:Null}" TimeoutMS="{x:Null}" CommandType="StoredProcedure" DisplayName="Run query" ExistingDbConnection="[dbConnection]" sap:VirtualizedContainerService.HintSize="623.2,52.8" sap2010:WorkflowViewState.IdRef="ExecuteQuery_2" Sql="sp_InvoiceInsertTable">
+      <ui:ExecuteQuery.Parameters>
+        <InArgument x:TypeArguments="sd:DataTable" x:Key="data">[data]</InArgument>
+      </ui:ExecuteQuery.Parameters>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </ui:ExecuteQuery>
+    <ui:DatabaseDisconnect DatabaseConnection="[dbConnection]" DisplayName="Disconnect from database" sap:VirtualizedContainerService.HintSize="623.2,24.8" sap2010:WorkflowViewState.IdRef="DatabaseDisconnect_1" />
   </Sequence>
 </Activity>

@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="DetectTextForImg" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="DetectTextForImg" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:p="http://schemas.uipath.com/workflow/activities/ocr" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="fileImage" Type="InArgument(x:String)" />
     <x:Property Name="invoiceDate" Type="OutArgument(x:String)" />
@@ -6,12 +6,13 @@
     <x:Property Name="invoiceVat" Type="OutArgument(x:String)" />
     <x:Property Name="invoiceTotal" Type="OutArgument(x:String)" />
     <x:Property Name="invoiceTaxCode" Type="OutArgument(x:String)" />
-    <x:Property Name="invoiceCompany" Type="OutArgument(x:String)" />
+    <x:Property Name="invoiceNumber" Type="OutArgument(x:String)" />
+    <x:Property Name="invoiceSellerName" Type="OutArgument(x:String)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>844,2332.8</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>844,2266.4</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DetectTextForImg_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -116,87 +117,241 @@
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DetectTextForImg" sap:VirtualizedContainerService.HintSize="545.6,2268" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="DetectTextForImg" sap:VirtualizedContainerService.HintSize="583.2,2201.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Image" Name="img" />
       <Variable x:TypeArguments="x:String" Name="invoiceData" />
       <Variable x:TypeArguments="x:String" Name="day" />
       <Variable x:TypeArguments="x:String" Name="month" />
       <Variable x:TypeArguments="x:String" Name="year" />
-      <Variable x:TypeArguments="x:String" Default=" " Name="s" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LoadImage DisplayName="Load Image" FileName="[fileImage]" sap:VirtualizedContainerService.HintSize="483.2,85.6" sap2010:WorkflowViewState.IdRef="LoadImage_1" Image="[img]" />
-    <p:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" DisplayName="UiPath Screen OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="483.2,24.8" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_1" Image="[img]" Language="auto" Profile="Screen" Scale="1" Text="[invoiceData]" Timeout="100000" />
-    <Assign sap:VirtualizedContainerService.HintSize="483.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_2">
-      <Assign.To>
-        <OutArgument x:TypeArguments="x:String">[s]</OutArgument>
-      </Assign.To>
-      <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[s + invoiceData]</InArgument>
-      </Assign.Value>
-    </Assign>
-    <ui:Matches DisplayName="Invoice TaxCode" FirstMatch="[invoiceTaxCode]" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=Ma so thue : |Ma so thue: |Ma so thuc: |\(Tax Code\): |\(Tax Code\) : |\(Tar code\): |\(Tax code\): |\(Tax code\) : |fTur codey: )[\d# ]+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice Day" FirstMatch="[day]" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(datc\) |\(Dare\) |\(day\) |\(Date\) |Ngay |fdate\) |\(Dute\) |\(core\) )\d+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice Month" FirstMatch="[month]" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(movrk\) |\(month\) |\(manth\) |thang |\(monrh\) |\(morth )[\dlI/]+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice Year" FirstMatch="[year]" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=Dyear\) |\(year\) |\(ycar\) |nam |fyear\) |\(jexr\) |\(rear\) )\d+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice Subtotal" FirstMatch="[invoiceSubtotal]" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Matches_5" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(Pre-tax Tofal\): |\(Sub total\): |\(Pre-tax Total\): |\(Sub t0tal\): |\(Toral amoini\): |Cong tien hang : |tien hang hoa, dich vu: |tien hang hoa, dich vg: |\(Total hefre JAT:: )[\d.,]+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice VAT" FirstMatch="[invoiceVat]" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(VA77: |\(VAT amount\): |GTGT \(VAT\): |GTGT/VAT amount\): |\(VAT amomni\): |thue GTGT : |thue GTGT: |1'AT UmermIl: )[\d.,]+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice Total" FirstMatch="[invoiceTotal]" sap:VirtualizedContainerService.HintSize="483.2,60" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(Amoumi totul\): |\(Total: |\(Amount tatalJ: |thanh toan: |forot payment\): |\(Total payment\): |\(Tatat payment\): |\(Total\): |\(Totat payment\): |thanh toan : | (Total pajment): |\(Amount total\): |/Tatal umounty: |\(Total Amoun\): |\(Total pajment\): )[\d ,.]+" RegexOption="IgnoreCase, Compiled" />
-    <uix:NApplicationCard AttachMode="ByInstance" CloseMode="Always" DisplayName="Use Browser Edge: Tra Cứu Mã Số Thuế (Công Ty, Cá Nhân) - MaSoThue" sap:VirtualizedContainerService.HintSize="483.2,848" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="13106508-230e-425b-8a08-ae7147a841b3" Version="V2">
-      <uix:NApplicationCard.Body>
-        <ActivityAction x:TypeArguments="x:Object">
-          <ActivityAction.Argument>
-            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-          </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,631.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <sap:WorkflowViewStateService.ViewState>
-              <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-              </scg:Dictionary>
-            </sap:WorkflowViewStateService.ViewState>
-            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Tra cứu mã số thuế'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="387.2,218.4" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="13106508-230e-425b-8a08-ae7147a841b3" Text="[invoiceTaxCode.Replace(&quot; &quot;,&quot;&quot;).Replace(&quot;#&quot;,&quot;0&quot;) + &quot;[k(Enter)]&quot;]" Version="V3">
-              <uix:NTypeInto.Target>
-                <uix:TargetAnchorable BrowserURL="https://masothue.com/tra-cuu-ma-so-thue-ca-nhan/" CvElementArea="565, 687, 673, 63" CvTextArea="609, 705, 312, 23" CvTextArgument="Nhap ma so thue, CMND, ten cong ty" CvType="InputBox" DesignTimeRectangle="569, 686, 475, 63" DesignTimeScaleFactor="1.25" ElementType="InputBox" FriendlyName="'INPUT search'" FullSelectorArgument="&lt;webctrl id='search' tag='INPUT' /&gt;" FuzzySelectorArgument="&lt;webctrl id='search' tag='INPUT' type='text' class='form-control search-field tax-search-input' aaname='Tìm kiếm theo:' /&gt;" Guid="7a5a9eef-cb59-4efb-9692-d31b49a53eb2" ImageBase64="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" InformativeScreenshot="889eccf1aa6aef714e036ba0a12b1f15.png" IsResponsive="True" ScopeSelectorArgument="&lt;html app='msedge.exe' title='Tra cứu mã số thuế cá nhân - MaSoThue' /&gt;" SearchSteps="FuzzySelector, Image, CV" Version="V2" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target CvTextArgument="Tra cupu ma so thue" CvType="Text" DesignTimeRectangle="199, 686, 351, 61" ElementType="Text" FriendlyName="'Tra cứu mã số thuế'" FullSelectorArgument="&lt;webctrl id='departments-menu-toggle' tag='A' /&gt;" FuzzySelectorArgument="&lt;webctrl id='departments-menu-toggle' tag='A' type='' class='nav-link dropdown-toggle' aaname='Tra cứu mã số thuế' check:innerText='Tra cứu mã số thuế' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image, CV" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NTypeInto.Target>
-            </uix:NTypeInto>
-            <uix:NGetText DisplayName="Get Text '0100181575 -'" sap:VirtualizedContainerService.HintSize="387.2,157.6" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="13106508-230e-425b-8a08-ae7147a841b3" TextString="[invoiceCompany]" Version="V3">
-              <uix:NGetText.Target>
-                <uix:TargetAnchorable BrowserURL="https://masothue.com/0100181575-nguyen-thi-sau" DesignTimeRectangle="218, 667, 1041, 63" DesignTimeScaleFactor="1.25" ElementType="Container" FriendlyName="'0100181575 -'" FullSelectorArgument="&lt;webctrl parentid='main' tag='HEADER' /&gt;" FuzzySelectorArgument="&lt;webctrl parentid='main' tag='HEADER' type='' class='' aaname='  ' /&gt;" Guid="1decfa26-fde7-4eee-a9b7-dc1e60cc78e9" ImageBase64="" InformativeScreenshot="fdc2dc04726f1a5a8edc1275178b2fad.png" ScopeSelectorArgument="&lt;html app='msedge.exe' title='0100181575 - NGUYỄN THỊ SÁU - MaSoThue' /&gt;" SearchSteps="FuzzySelector" Version="V2" Visibility="Interactive">
-                  <uix:TargetAnchorable.Anchors>
-                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                      <uix:Target DesignTimeRectangle="16, 168, 1829, 194" ElementType="Container" FriendlyName="'window['pagespeed'] ='" FullSelectorArgument="&lt;webctrl id='masthead' tag='HEADER' /&gt;" FuzzySelectorArgument="&lt;webctrl id='masthead' tag='HEADER' type='' class='site-header header-v2' aaname='  ' check:innerText='Trang chủ Tra cứu mã số thuế cá nhân Ngành nghề Liên hệ&amp;#xD;&amp;#xA;&amp;#x9;Email: info@masothue.com' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
-                    </scg:List>
-                  </uix:TargetAnchorable.Anchors>
-                </uix:TargetAnchorable>
-              </uix:NGetText.Target>
-            </uix:NGetText>
-            <ui:Matches BuilderPattern="(?&lt;=- )[\w ]*" DisplayName="Invoice Seller" FirstMatch="[invoiceCompany]" sap:VirtualizedContainerService.HintSize="387.2,60" sap2010:WorkflowViewState.IdRef="Matches_8" Input="[invoiceCompany]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=- )[\\w ]*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=- )[\w ]*" RegexOption="IgnoreCase, Compiled" />
-          </Sequence>
-        </ActivityAction>
-      </uix:NApplicationCard.Body>
-      <uix:NApplicationCard.TargetApp>
-        <uix:TargetApp Area="-9, -9, 1938, 1038" BrowserType="Edge" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAKASURBVFhHtZW/ahwxEIfPGBOMHyCYPILOakKKPICfxRwpUqcOxrhMkSpFCKlShSOFcWGMSRFMipDCBJcujJ3CD5Bq85vRSJrVzel2ha/4Trv6M/ONVrc76bpuo5X7qT8Ex9bYUJoF7p2fIXlH3Dn/2pozhCYBJE3JE40SowVQbT+5U63zr6w1NUYJpOQxKUCfvr+11tUYLIDgM6myJ0CwBF07/9NaW2OlAAJvgXd3bi8lSlULSWDqL60YNYYIPAe/kegciU5x/VeSZZncPr4AAj/R9xD5wsmlctqZKLMWgRIkmUcBpn+9fgFUvV4BBNkHT8v+SBKwWSqAsW3wsuzvCaCKI36mzu/ofg3G5nLguGq+jvd1gU3wgLnvdX8SwOBMAj/oCSUYn3PCnDRJoK0+Asy9knnptc0C6ETydJqv4qAFxvMZ0G1glcCZFEmwxAQBjqQj4Px1uVCD8YUdICjwgB24SAKhPZ7gJ1Uku1AXKP+GvI6DESsF9Fqsm4dHMPUfJADxp1yowXjYAcxNj22oAN6mea3/SH35EDpIhMGb2GeBObwDqupAuF+1Az9kPicnen9DBD2RYJu6X8MCuYpcfbiuCmD+P+zad93XEyAQ7A0m7Zb9EYyrM5MlpF0qgDU7GD8o+xcECEzesvoJLcCt7AQL1F5ES3bVFKhBApJMb328rz4Ci/ECcggJVXkUObfW1BgtgIT5RbTILcbfoj3EOfoMsRdWDE2bgNoBTiz3Rf8v8MyKoWk6Aykp2ihRyHyy1lq0CFyqRAkWoGs3PDnRcgj540WvYeMRjEpOjBYgkIhf2+lb0FB5pEmAQPX6A9aUnGgWIJD4K0S+WWPD6Db+A6bf2YqH/g4ZAAAAAElFTkSuQmCC" InformativeScreenshot="f542d08f76eb06b7105814048cd4b5d7.jpg" Selector="&lt;html app='msedge.exe' title='Tra Cứu Mã Số Thuế (Công Ty, Cá Nhân) - MaSoThue' /&gt;" Title="Tra Cứu Mã Số Thuế (Công Ty, Cá Nhân) - MaSoThue - Cốc Cốc" Url="https://masothue.com/" />
-      </uix:NApplicationCard.TargetApp>
-    </uix:NApplicationCard>
-    <Assign sap:VirtualizedContainerService.HintSize="483.2,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LoadImage DisplayName="Load Image" FileName="[fileImage]" sap:VirtualizedContainerService.HintSize="520.8,85.6" sap2010:WorkflowViewState.IdRef="LoadImage_1" Image="[img]" />
+    <p:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" DisplayName="UiPath Screen OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="520.8,24.8" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_1" Image="[img]" Language="auto" Profile="Screen" Scale="1" Text="[invoiceData]" Timeout="100000" />
+    <ui:Matches BuilderPattern="(?&lt;=Số: |Số : |\(No.\): |\(No.\) : |\(No\): |\(No\) : )\d+" DisplayName="Invoice Number" FirstMatch="[invoiceNumber]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_10" Input="[invoiceData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Số: |Số : |\\(No.\\): |\\(No.\\) : |\\(No\\): |\\(No\\) : )\\d+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=\(No.J: |\(Invoice No.: |S8:|\(No./: |So: |So : |\(No.\). |\(No.\) |\(No.\): |\(No.\) : |\(No\): |\(No\) : |\(Invoice No.\): |\(Invoice No.\) : |\(Invoice No\): |\(Invoice No\) : )\d+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches DisplayName="Invoice TaxCode" FirstMatch="[invoiceTaxCode]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=Ma so thue : |Ma so thue: |Ma so thuc: |\(Tax Code\): |\(Tax Code\) : |\(Tar code\): |\(Tax code\): |\(Tax code\) : |fTur codey: )[\d# ]+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches DisplayName="Invoice Day" FirstMatch="[day]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(datc\) |\(Dare\) |\(day\) |\(Date\) |Ngay |fdate\) |\(Dute\) |\(core\) )\d+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches DisplayName="Invoice Month" FirstMatch="[month]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(movrk\) |\(month\) |\(manth\) |thang |\(monrh\) |\(morth )[\dlI/]+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches DisplayName="Invoice Year" FirstMatch="[year]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=Dear\) |Dyear\) |\(year\) |\(ycar\) |nam |fyear\) |\(jexr\) |\(rear\) )\d+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches DisplayName="Invoice Subtotal" FirstMatch="[invoiceSubtotal]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_5" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(Pre-tax Tofal\): |\(Sub total\): |\(Pre-tax Total\): |\(Sub t0tal\): |\(Toral amoini\): |Cong tien hang : |Cong tien hang: |tien hang hoa, dich vu: |tien hang hoa, dich vg: |\(Total hefre JAT:: )[\d.,]+" RegexOption="IgnoreCase, Compiled" />
+    <If Condition="[String.IsNullOrEmpty(invoiceSubtotal)]" sap:VirtualizedContainerService.HintSize="520.8,52.8" sap2010:WorkflowViewState.IdRef="If_1">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_19">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[invoiceSubtotal]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">0</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3" />
+      </If.Else>
+    </If>
+    <ui:Matches DisplayName="Invoice VAT" FirstMatch="[invoiceVat]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(VA77: |\(VAT amount\): |GTGT \(VAT\): |GTGT/VAT amount\): |\(VAT amomni\): |thue GTGT : |thue GTGT: |1'AT UmermIl: )[\d.,]+" RegexOption="IgnoreCase, Compiled" />
+    <If Condition="[String.IsNullOrEmpty(invoiceVat)]" sap:VirtualizedContainerService.HintSize="520.8,52.8" sap2010:WorkflowViewState.IdRef="If_2">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <If.Then>
+        <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_20">
+            <Assign.To>
+              <OutArgument x:TypeArguments="x:String">[invoiceVat]</OutArgument>
+            </Assign.To>
+            <Assign.Value>
+              <InArgument x:TypeArguments="x:String">0</InArgument>
+            </Assign.Value>
+          </Assign>
+        </Sequence>
+      </If.Then>
+      <If.Else>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5" />
+      </If.Else>
+    </If>
+    <ui:Matches DisplayName="Invoice Total" FirstMatch="[invoiceTotal]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(Torat parmentt: |\(Tatal parment\): |\(Amoumi totul\): |\(Total: |\(Amount tatalJ: |thanh toan: |forot payment\): |\(Total payment\): |\(Tatat payment\): |\(Total\): |\(Totat payment\): |thanh toan : | (Total pajment): |\(Amount total\): |/Tatal umounty: |\(Total Amoun\): |\(Total pajment\): )[\d ,.]+" RegexOption="IgnoreCase, Compiled" />
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[invoiceTaxCode.Replace(&quot; &quot;,&quot;&quot;).Replace(&quot; &quot;,&quot;&quot;).Replace(&quot;#&quot;,&quot;0&quot;).Trim]" sap:VirtualizedContainerService.HintSize="520.8,617.6" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+      <Switch.Default>
+        <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_3">
+          <Assign.To>
+            <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+          </Assign.To>
+          <Assign.Value>
+            <InArgument x:TypeArguments="x:String">
+              <Literal x:TypeArguments="x:String" Value="" />
+            </InArgument>
+          </Assign.Value>
+        </Assign>
+      </Switch.Default>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign x:Key="0313418500" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_4">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CÔNG TY TNHH MINH QUÂN MQB</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="8009054149" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">NGUYỄN ĐỨC TÀU</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0107718107" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_6">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CÔNG TY TNHH ĐIỆN TỬ HATAGROUP VIỆT NAM</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0107396499" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CÔNG TY CỔ PHẦN TỰ ĐỘNG HÓA TOÀN CẦU</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0101459199" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CÔNG TY TNHH XUẤT NHẬP KHẨU BANGDA</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0101448197" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_10">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CỬA HÀNG THIẾT BỊ DỤNG CỤ ĐIỆN, ĐIỆN TỬ VIỄN THÔNG NGUYỄN THỊ HƯỜNG</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0106356768" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CÔNG TY TNHH MLAB</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0100181575" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_11">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">NGUYỄN THỊ SÁU</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="8155452405" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_12">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">NGUYỄN THỊ TUYẾT</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0102917980" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CÔNG TY CỔ PHẦN ĐẦU TƯ THƯƠNG MẠI H2K VIỆT NAM</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="8088301285" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">MẠC THỊ HOAN</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="2300974247" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_15">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CÔNG TY TNHH VT BẮC VIỆT</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0110104379" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_16">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CÔNG TY CỔ PHẦN ĐIỆN TỬ PICKNPLACE VIỆT NAM</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0314661699" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_17">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CÔNG TY TNHH XUẤT NHẬP KHẨU BANGDA</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0101444675" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_18">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">NGUYỄN TRỌNG HIỆP</InArgument>
+        </Assign.Value>
+      </Assign>
+      <Assign x:Key="0102892824" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_21">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY DỰNG THƯƠNG MẠI MINH LONG</InArgument>
+        </Assign.Value>
+      </Assign>
+    </Switch>
+    <Assign sap:VirtualizedContainerService.HintSize="520.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[invoiceDate]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[day+"/"+month.Replace("/","11")+"/"+year]</InArgument>
+        <InArgument x:TypeArguments="x:String">[year+"-"+month.Replace("/","11")+"-"+day]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="UnitTest\invoice-data.txt" sap:VirtualizedContainerService.HintSize="483.2,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[s]" />
+    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="UnitTest\invoice-data.txt" sap:VirtualizedContainerService.HintSize="520.8,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[invoiceData]" />
   </Sequence>
 </Activity>
