@@ -12,6 +12,8 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "Cloudinary&Sequence_2",
+        "file&Sequence_2",
         "bytes&Sequence_2",
         "invoiceFile&Sequence_2",
         "invoiceSellerName&Sequence_1",
@@ -80,6 +82,14 @@
         "invoiceTotal",
         "invoiceTaxCode"
       ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Test.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null
     }

@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "ZxGAoNtcfTKwMcxeuZfKCtN4/zwImAfJyTqMRgNUeW5YhpMEtFxe2fL2UwAMueKcLX82K4N2O2OiXswtn7Z5vQ==",
+  "dgSpecHash": "kRbndJqGbb70jsHasdiwWXwvMm+nEIysazY9orV+wqTiKRAoB5z7APu4nyFxVpb5AjQN4E7gkNiK0+UruGEF5w==",
   "success": true,
   "projectFilePath": "D:\\GraduationProject\\BillProcessingApp\\BillProcessing\\.local\\",
   "expectedPackageFiles": [
     "C:\\Users\\quang\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",
+    "C:\\Users\\quang\\.nuget\\packages\\avalonedit\\6.0.1\\avalonedit.6.0.1.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\azure.core\\1.18.0\\azure.core.1.18.0.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\azure.identity\\1.3.0\\azure.identity.1.3.0.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\bitmiracle.docotic.pdf\\8.8.14512-dev\\bitmiracle.docotic.pdf.8.8.14512-dev.nupkg.sha512",
@@ -108,6 +109,7 @@
     "C:\\Users\\quang\\.nuget\\packages\\oracle.manageddataaccess.core\\3.21.1\\oracle.manageddataaccess.core.3.21.1.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\polly\\7.1.0\\polly.7.1.0.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
+    "C:\\Users\\quang\\.nuget\\packages\\restsharp\\106.15.0\\restsharp.106.15.0.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\runtime.any.system.collections\\4.3.0\\runtime.any.system.collections.4.3.0.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\runtime.any.system.diagnostics.tools\\4.3.0\\runtime.any.system.diagnostics.tools.4.3.0.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\runtime.any.system.diagnostics.tracing\\4.3.0\\runtime.any.system.diagnostics.tracing.4.3.0.nupkg.sha512",
@@ -300,6 +302,8 @@
     "C:\\Users\\quang\\.nuget\\packages\\uipath.uiautomation.activities\\23.4.4\\uipath.uiautomation.activities.23.4.4.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\uipath.uiautomation.activities.runtime\\23.4.4\\uipath.uiautomation.activities.runtime.23.4.4.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\uipath.vision\\3.10.1\\uipath.vision.3.10.1.nupkg.sha512",
+    "C:\\Users\\quang\\.nuget\\packages\\uipath.webapi.activities\\1.16.2\\uipath.webapi.activities.1.16.2.nupkg.sha512",
+    "C:\\Users\\quang\\.nuget\\packages\\uipath.webapi.runtime\\1.16.2\\uipath.webapi.runtime.1.16.2.nupkg.sha512",
     "C:\\Users\\quang\\.nuget\\packages\\uipathteam.encodeactivities.activities.design\\1.1.0\\uipathteam.encodeactivities.activities.design.1.1.0.nupkg.sha512"
   ],
   "logs": []

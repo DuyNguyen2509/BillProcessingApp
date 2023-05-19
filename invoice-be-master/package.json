@@ -1,0 +1,35 @@
+{
+  "name": "invoice-be",
+  "version": "1.0.0",
+  "description": "this is project for datn",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gianam65/invoice-be.git"
+  },
+  "author": "_nam.gia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/gianam65/invoice-be/issues"
+  },
+  "homepage": "https://github.com/gianam65/invoice-be#readme",
+  "keywords": [],
+  "dependencies": {
+    "cloudinary": "^1.37.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "morgan": "^1.10.0",
+    "msnodesqlv8": "^3.1.0",
+    "mssql": "^9.1.1",
+    "multer": "^1.4.5-lts.1",
+    "multer-storage-cloudinary": "^4.0.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.22"
+  }
+}

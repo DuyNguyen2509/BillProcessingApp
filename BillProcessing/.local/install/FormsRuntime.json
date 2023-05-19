@@ -1,5 +1,6 @@
 ﻿{
   "IdMap": {
+    "5d172243-87f9-4b45-af7f-b7dded647a55": "../../UI/MainScreen.uiform",
     "a1a484ab-8574-4f49-b086-9cdc3eaa71d2": "../../UI/ValidationInvoice.uiform"
   }
 }
