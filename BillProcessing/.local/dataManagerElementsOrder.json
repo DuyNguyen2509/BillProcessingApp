@@ -12,12 +12,12 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
-        "Cloudinary&Sequence_2",
-        "file&Sequence_2",
-        "bytes&Sequence_2",
-        "invoiceFile&Sequence_2",
+        "selectedFile&Sequence_28",
+        "ChosenButton&Sequence_1",
+        "status&Sequence_25",
+        "content&Sequence_25",
+        "fileName&Sequence_21",
         "invoiceSellerName&Sequence_1",
-        "dbConnection&Sequence_1",
         "data&Sequence_1",
         "invoiceNumber&Sequence_1",
         "invoiceTaxCode&Sequence_1",
@@ -89,6 +89,18 @@
       "Path": "Test.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": ".local/generated/Triggers.Generated.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "StopTriggersVariable&Generated_100",
+        "BreakTriggerScopeVariableName&Generated_43",
+        "BreakTriggerScopeVariableName&Generated_77"
+      ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

@@ -1,0 +1,44 @@
+.sellers__container {
+  .sellers__add-btn {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+    gap: 12px;
+  }
+
+  .sellers__row-action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .manipulated__action {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .action__edit, .action__delete {
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+
+        &:hover {
+          color: #1890ff;
+        }
+      } 
+      .action__delete:hover {
+        color: #e74c3c;
+      } 
+    }
+  }
+}
+
+
+.add__seller-modal {
+  .ant-modal-body {
+    .add__seller-label {
+      margin-bottom: 6px;
+    }
+    input {
+      margin-bottom: 20px;
+    }
+  }
+}

@@ -1,48 +1,158 @@
-HÓA ĐƠN BÁN HÀNG
-(SALE INVOICE) Ký hiệu (Serial No.): 2C22TTH
-Số (No.): 96
-Ngày (date) 30 tháng (month) 5 năm (year) 2022
-Mã CQT 00F826D66F1931450FA6A88567C69BD30C
+HÓA ĐƠN GIÁ TRỊ GIA TĂNG
+(VAT INVOICE)
+Ngày (day) 24  tháng (month) 04  năm (year) 2023
+Mẫu số - Ký hiệu (Serial No.) : 1C23TYY
+Số (Invoice No.) : 00000027
 
-Đơn vị bán hàng (Sale Company): NGUYỄN TRỌNG HIỆP
-Mã số thuế (Tax code): 0101444675
-Địa chỉ (Address): Số 139, Phố Nguyễn Thái Học, Phường Điện Biên, Quận Ba Đình, Thành phố Hà Nội
-Số điện thoại (Tel): 0984 309 955
-Số tài khoản (Account No): tại
+Mã của Cơ quan thuế: 002F56FA4C9F0644F8806BC9CC83FA10C9
+Đơn vị bán (Seller) : CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY DỰNG THƯƠNG MẠI MINH LONG
+Mã số thuế (Tax Code) : 0 1 0 2 8 9 2 8 2 4
+Địa chỉ (Address) : Thôn Gia Cốc, Xã Kiêu Kỵ, Huyện Gia Lâm, Thành phố Hà Nội, Việt Nam
+Điện thoại (Tel) : 0978983732
+Số tài khoản (Account No.) : 32626888 tại Ngân hàng thương mại cổ phần Á Châu- PGD Gia Lâm
 
-Người mua hàng (Customer):
-Tên đơn vị (Company): CÔNG TY TNHH GIẢI PHÁP CÔNG NGHỆ NGUỒN POSTEF
-Địa chỉ (Address): Số 63, phố Trần Phú, Phường Điện Biên, Quận Ba Đình, TP Hà Nội, Việt Nam
-Số tài khoản (Account Code): tại:
-Hình thức thanh toán (Kind of Payment ): Tiền mặt/Chuyển khoản Mã số thuế (Tax code): 0101459199
+Người mua (Buyer) :
+Đơn vị (Company name) :  CÔNG TY TNHH GIẢI PHÁP CÔNG NGHỆ NGUỒN POSTEF
+Mã số thuế (Tax Code) :  0101459199
+Địa chỉ (Address) :  Số 63, phố Trần Phú, Phường Điện Biên, Quận Ba Đình, Thành phố Hà Nội, Việt Nam
+Hình thức thanh toán (Payment method) :  Chuyển khoản
+Số tài khoản (Account No.) :
+STT Tên hàng hóa, dịch vụ Đơn vị Số lượng Đơn giá Thành tiền
+(No.) (Description) tính (Quantity) (Unit Price) (Amount)
+(Unit)
 
-STT Tên hàng hóa, dịch vụ Đơn vị tính Số lượng Đơn giá Thành tiền
-(No) (Description) (Unit) (Quantity) (Unit price) (Amount)
+1 2 3 4 5 6 = 4 x 5
+1 ATMEGA8L-8PU IC MCU 8-bit 8KB FLASH 28DIP Cái 1.600 74.600 119.360.000
 
-(1) (2) (3) (4) (5) (6) = (4) x(5)
-1 IC ATMEGA 8A-PU Chiếc 250 61.200 15.300.000
-2 Thanh lượt  1 pha / 20A/50mắt thanh 6 59.160 354.960
-3 Đế nạp IC PIC Chiếc 1 132.600 132.600
-4 Phao cảm biến nước Chiếc 44 29.580 1.301.520
-5 KIT STM32F103C8T6 Chiếc 1 127.500 127.500
-Tổng cộng tiền thanh toán: 17.182.147
-Mười bảy triệu một trăm tám mươi hai nghìn một trăm bốn mươi bảy đồng. (Đã
-Số tiền viết bằng chữ (Amount in words): giảm 34.433 đồng tương ứng 20% mức tỷ lệ % để tính thuế giá trị gia tăng theo Nghị
-quyết số 43/2022/QH15)./.
+2 Đế IC 28 pin loại nhỏ Cái 1.600 1.500 2.400.000
 
-NGƯỜI MUA HÀNG
-(Buyer)
-Ký, ghi rõ họ tên (Buyer's Signature)
-NGƯỜI BÁN HÀNG
-(Seller)
-Ký, ghi rõ họ tên (Seller's Signature)
+3 CONN TERMINAL 12P 15EDG3.81-4P 3.81mm Cái 1.600 15.200 24.320.000
+chân cong
 
-Được ký bởi: NGUYỄN TRỌNG HIỆP
-Ngày ký: 2022-05-30
+4 CONN TERMINAL 10P 15EDG3.81-4P 3.81mm Cái 1.600 11.500 18.400.000
+chân cong
 
-Hóa đơn đã được cấp mã bởi tổng cục thuế
+5 CONN TERMINAL 2P 2EDG5.08-2P chân cong Cái 1.600 2.500 4.000.000
+(CON 2 xanh)
 
-Mã nhận hóa đơn: d60101c Tra cứu tại: http://tracuuhoadon.mobifoneinvoice.vn
-(Khởi tạo từ Hệ thống hóa đơn điện tử MobiFone Invoice - Tổng Công ty Viễn thông MobiFone - MST: 0100686209)
-(Cần kiểm tra, đối chiếu khi lập, giao nhận hóa đơn)
-Trang 1/1
+6 CONN TERMINAL 3P 2EDG5.08-3P chân cong Cái 1.600 3.500 5.600.000
+(CON 3 xanh)
+
+7 L7805CV IC Ổn Áp Nguồn 5V 1.5A TO-220 Cái 1.600 4.400 7.040.000
+
+8 C1815 2SC1815 TO-92 Transistor 0.15A 50V TO- Cái 3.200 500 1.600.000
+92
+
+9 PC817 OPTOISOLATOR 5KV TRANS DIP-4 Cái 3.200 1.500 4.800.000
+
+10 LED 7 thanh 0.36 inch 3 số màu đỏ K chung Cái 1.600 8.300 13.280.000
+3261AS
+
+11 LED Xanh 3mm Cái 3.200 550 1.760.000
+
+12 Tụ hóa 1uF/ 16V Cái 1.600 450 720.000
+
+13 Điện trở vạch 1/4W 10K 1% Cái 8.000 120 960.000
+
+14 Điện trở vạch 1/4W 13K 1% Cái 3.200 120 384.000
+
+15 Điện trở vạch 1/4W 1K 1% Cái 22.400 120 2.688.000
+
+(Cần kiểm tra đối chiếu khi lập, giao, nhận hóa đơn)
+
+Giải pháp Hóa đơn Điện tử được cung cấp bởi Công ty Cổ phần Bkav - MST 0101360697 - ĐT 1900 545414 - http://ehoadon.vn
+Hóa đơn Điện tử (HĐĐT) được tra cứu trực tuyến tại http://tracuu.ehoadon.vn. Mã tra cứu HĐĐT này: T6I3EO424B6HÓA ĐƠN GIÁ TRỊ GIA TĂNG
+(VAT INVOICE)
+Ngày (day) 24  tháng (month) 04  năm (year) 2023
+Mẫu số - Ký hiệu (Serial No.) : 1C23TYY
+Số (Invoice No.) : 00000027
+[Tiep theo trang truoc - Trang 2/3]
+
+Mã của Cơ quan thuế: 002F56FA4C9F0644F8806BC9CC83FA10C9
+Đơn vị bán (Seller) : CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY DỰNG THƯƠNG MẠI MINH LONG
+Mã số thuế (Tax Code) : 0 1 0 2 8 9 2 8 2 4
+Địa chỉ (Address) : Thôn Gia Cốc, Xã Kiêu Kỵ, Huyện Gia Lâm, Thành phố Hà Nội, Việt Nam
+Điện thoại (Tel) : 0978983732
+Số tài khoản (Account No.) : 32626888 tại Ngân hàng thương mại cổ phần Á Châu- PGD Gia Lâm
+
+Người mua (Buyer) :
+Đơn vị (Company name) :  CÔNG TY TNHH GIẢI PHÁP CÔNG NGHỆ NGUỒN POSTEF
+Mã số thuế (Tax Code) :  0101459199
+Địa chỉ (Address) :  Số 63, phố Trần Phú, Phường Điện Biên, Quận Ba Đình, Thành phố Hà Nội, Việt Nam
+Hình thức thanh toán (Payment method) :  Chuyển khoản
+Số tài khoản (Account No.) :
+STT Tên hàng hóa, dịch vụ Đơn vị Số lượng Đơn giá Thành tiền
+(No.) (Description) tính (Quantity) (Unit Price) (Amount)
+(Unit)
+
+1 2 3 4 5 6 = 4 x 5
+16 Điện trở vạch 1/4W 220R 1% Cái 8.000 120 960.000
+
+17 Điện trở vạch 1/4W 56K 1% Cái 1.600 120 192.000
+
+18 Điện trở vạch 2W 10R 5% Cái 1.600 150 240.000
+
+19 Diode zener 1/2W 15V DIP Cái 1.600 500 800.000
+
+20 1N4007 Diode chỉnh lưu 1A 1000V 52mm chân nhỏ Cái 1.600 500 800.000
+
+21 Diode 1N4148 1/2W DIP Cái 6.400 300 1.920.000
+
+22 Relay 12V 8 chân 1A HK19F-DC12V-SHG Cái 3.200 13.000 41.600.000
+
+23 Điện trở nhiệt NTC MF52A 103 10K 1% Cái 2.500 1.400 3.500.000
+
+24 Dăm 2.54mm 40 chân Thanh 100 1.320 132.000
+
+25 Công tắc chip ( 6 x 6 x 8) mm Cái 1.600 550 880.000
+
+Theo phụ lục 01 kèm theo hợp đồng số : 1004/HĐ-
+26 MINHLONG-PDE/2023, ký ngày 10 tháng 03 năm
+2023
+
+(Cần kiểm tra đối chiếu khi lập, giao, nhận hóa đơn)
+
+Giải pháp Hóa đơn Điện tử được cung cấp bởi Công ty Cổ phần Bkav - MST 0101360697 - ĐT 1900 545414 - http://ehoadon.vn
+Hóa đơn Điện tử (HĐĐT) được tra cứu trực tuyến tại http://tracuu.ehoadon.vn. Mã tra cứu HĐĐT này: T6I3EO424B6HÓA ĐƠN GIÁ TRỊ GIA TĂNG
+(VAT INVOICE)
+Ngày (day) 24  tháng (month) 04  năm (year) 2023
+Mẫu số - Ký hiệu (Serial No.) : 1C23TYY
+Số (Invoice No.) : 00000027
+[Tiep theo trang truoc - Trang 3/3]
+
+Mã của Cơ quan thuế: 002F56FA4C9F0644F8806BC9CC83FA10C9
+Đơn vị bán (Seller) : CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY DỰNG THƯƠNG MẠI MINH LONG
+Mã số thuế (Tax Code) : 0 1 0 2 8 9 2 8 2 4
+Địa chỉ (Address) : Thôn Gia Cốc, Xã Kiêu Kỵ, Huyện Gia Lâm, Thành phố Hà Nội, Việt Nam
+Điện thoại (Tel) : 0978983732
+Số tài khoản (Account No.) : 32626888 tại Ngân hàng thương mại cổ phần Á Châu- PGD Gia Lâm
+
+Người mua (Buyer) :
+Đơn vị (Company name) :  CÔNG TY TNHH GIẢI PHÁP CÔNG NGHỆ NGUỒN POSTEF
+Mã số thuế (Tax Code) :  0101459199
+Địa chỉ (Address) :  Số 63, phố Trần Phú, Phường Điện Biên, Quận Ba Đình, Thành phố Hà Nội, Việt Nam
+Hình thức thanh toán (Payment method) :  Chuyển khoản
+Số tài khoản (Account No.) :
+STT Tên hàng hóa, dịch vụ Đơn vị Số lượng Đơn giá Thành tiền
+(No.) (Description) tính (Quantity) (Unit Price) (Amount)
+(Unit)
+
+1 2 3 4 5 6 = 4 x 5
+
+Cộng tiền hàng (Sub total) : 258.336.000
+Thuế suất GTGT (Tax rate) : 10% Tiền thuế GTGT (VAT amount) : 25.833.600
+Tổng cộng tiền thanh toán (Total payment) : 284.169.600
+Số tiền viết bằng chữ (Amount in words) : Hai trăm tám mươi tư triệu một trăm sáu mươi chín nghìn sáu trăm đồng
+chẵn./.
+Người mua hàng (Buyer) Người bán hàng (Seller)
+Đã được ký điện tử bởi
+(Signed digitally by)
+
+CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY
+DỰNG THƯƠNG MẠI MINH LONG
+Ngày: 24/04/2023
+
+(Cần kiểm tra đối chiếu khi lập, giao, nhận hóa đơn)
+
+Giải pháp Hóa đơn Điện tử được cung cấp bởi Công ty Cổ phần Bkav - MST 0101360697 - ĐT 1900 545414 - http://ehoadon.vn
+Hóa đơn Điện tử (HĐĐT) được tra cứu trực tuyến tại http://tracuu.ehoadon.vn. Mã tra cứu HĐĐT này: T6I3EO424B6

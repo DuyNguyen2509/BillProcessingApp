@@ -8,7 +8,10 @@ router.get("/", async (req, res) => {
   const pool = await sql.connect(config);
   const request = pool.request()
 
-  const result = await request.query`SELECT * FROM INVOICES`
+  const result = await request.query`
+  SELECT Invoices.*, Sellers.SellerName
+  FROM Invoices
+  JOIN Sellers ON Invoices.TaxCode  = Sellers.TaxCode`
 
   sql.close();
   return res.json({
@@ -40,8 +43,7 @@ router.post("/", uploadCloud.single("image"), async (req, res) => {
 
     // pass table variable as parameter to stored procedure
     request.input('Data', table);
-    await request.execute('sp_InvoiceInsertTable');
-
+    const result = await request.execute('sp_InvoiceInsertTable');
     sql.close();
     return res.json({
       success: true,
@@ -62,22 +64,22 @@ router.put("/:id", async (req, res) => {
     const request = pool.request();
     const invoiceId = req.params.id
     const { invoiceNumber, invoiceDate, taxCode, subTotal, vat, total } = req.body
-    request.input('InvoiceID', sql.Int, invoiceId);
+    request.input('InvoiceID', sql.Int, +invoiceId);
     request.input('InvoiceNumber', sql.NVarChar(20), invoiceNumber);
     request.input('InvoiceDate', sql.Date, invoiceDate);
     request.input('TaxCode', sql.VarChar(20), taxCode);
-    request.input('SubTotal', sql.Decimal(18, 2), subTotal);
-    request.input('Vat', sql.Decimal(18, 2), vat);
-    request.input('Total', sql.Decimal(18, 2), total);
+    request.input('SubTotal', sql.Int, +subTotal);
+    request.input('Vat', sql.Int, +vat);
+    request.input('Total', sql.Int, +total);
 
     await request.execute('sp_InvoiceUpdate');
-
     sql.close();
     return res.json({
       success: true,
       message: "Cập nhật hoá đơn thành công"
     })
   } catch (error) {
+    console.log('error :>> ', error);
     res.json({
       success: false
     })

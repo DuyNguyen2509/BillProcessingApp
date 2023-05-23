@@ -17,7 +17,7 @@
   + offset<<"number">> (optional)
   
 ## CREATE INVOICE
-- URL: http://localhost:8001/api/v1/invoices
+- URL: http://localhost:8001/api/v1/invocies
 - METHOD: POST
 - BODY:
   + invoiceNumber <<"string">> (require)

@@ -4,7 +4,7 @@ import './side-menu.scss';
 import { useMemo } from 'react';
 import { publicRoutes } from '../../routes';
 
-let ROUTES_NEED_TO_SHOW = ['/', '/sellers'];
+let ROUTES_NEED_TO_SHOW = ['/', '/sellers', '/statistic'];
 
 const SideMenu = () => {
   const location = useLocation();

@@ -1,0 +1,62 @@
+[
+  {
+    "InvoiceNumber": "00000190",
+    "InvoiceDate": "20230427",
+    "TaxCode": "0101448197",
+    "SellerName": "CỬA HÀNG THIẾT BỊ DỤNG CỤ ĐIỆN, ĐIỆN TỬ VIỄN THÔNG NGUYỄN THỊ HƯỜNG",
+    "SubTotal": 0,
+    "Vat": 0,
+    "Total": 3671000,
+    "FileInvoice": "C:\\Users\\quang\\Downloads\\1\\HD (2).pdf"
+  },
+  {
+    "InvoiceNumber": "00000185",
+    "InvoiceDate": "20230426",
+    "TaxCode": "0101448197",
+    "SellerName": "CỬA HÀNG THIẾT BỊ DỤNG CỤ ĐIỆN, ĐIỆN TỬ VIỄN THÔNG NGUYỄN THỊ HƯỜNG",
+    "SubTotal": 0,
+    "Vat": 0,
+    "Total": 17408760,
+    "FileInvoice": "C:\\Users\\quang\\Downloads\\1\\abc\\HD (3).pdf"
+  },
+  {
+    "InvoiceNumber": "00000190",
+    "InvoiceDate": "20230427",
+    "TaxCode": "0101448197",
+    "SellerName": "CỬA HÀNG THIẾT BỊ DỤNG CỤ ĐIỆN, ĐIỆN TỬ VIỄN THÔNG NGUYỄN THỊ HƯỜNG",
+    "SubTotal": 0,
+    "Vat": 0,
+    "Total": 3671000,
+    "FileInvoice": "C:\\Users\\quang\\Downloads\\1\\HD (2).pdf"
+  },
+  {
+    "InvoiceNumber": "00000185",
+    "InvoiceDate": "20230426",
+    "TaxCode": "0101448197",
+    "SellerName": "CỬA HÀNG THIẾT BỊ DỤNG CỤ ĐIỆN, ĐIỆN TỬ VIỄN THÔNG NGUYỄN THỊ HƯỜNG",
+    "SubTotal": 0,
+    "Vat": 0,
+    "Total": 17408760,
+    "FileInvoice": "C:\\Users\\quang\\Downloads\\1\\abc\\HD (3).pdf"
+  },
+  {
+    "InvoiceNumber": "00000190",
+    "InvoiceDate": "20230427",
+    "TaxCode": "0101448197",
+    "SellerName": "CỬA HÀNG THIẾT BỊ DỤNG CỤ ĐIỆN, ĐIỆN TỬ VIỄN THÔNG NGUYỄN THỊ HƯỜNG",
+    "SubTotal": 0,
+    "Vat": 0,
+    "Total": 3671000,
+    "FileInvoice": "C:\\Users\\quang\\Downloads\\1\\HD (2).pdf"
+  },
+  {
+    "InvoiceNumber": "00000185",
+    "InvoiceDate": "20230426",
+    "TaxCode": "0101448197",
+    "SellerName": "CỬA HÀNG THIẾT BỊ DỤNG CỤ ĐIỆN, ĐIỆN TỬ VIỄN THÔNG NGUYỄN THỊ HƯỜNG",
+    "SubTotal": 0,
+    "Vat": 0,
+    "Total": 17408760,
+    "FileInvoice": "C:\\Users\\quang\\Downloads\\1\\abc\\HD (3).pdf"
+  }
+]

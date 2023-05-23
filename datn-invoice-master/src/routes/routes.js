@@ -1,7 +1,8 @@
 import config from '../config';
 import Home from '../pages/home/home';
 import Sellers from '../pages/sellers/sellers';
-import { AppstoreOutlined, UserOutlined } from '@ant-design/icons';
+import StatisticPage from '../pages/statistic/statistic';
+import { AppstoreOutlined, UserOutlined, BarChartOutlined } from '@ant-design/icons';
 const publicRoutes = [
   {
     path: config.routes.home,
@@ -13,8 +14,15 @@ const publicRoutes = [
   {
     path: config.routes.sellers,
     element: Sellers,
-    label: 'Đơn vị bán hàng',
+    label: 'Đơn vị đối tác',
     pageIcon: UserOutlined,
+    needShowSideMenu: true
+  },
+  {
+    path: config.routes.statistic,
+    element: StatisticPage,
+    label: 'Thống kê',
+    pageIcon: BarChartOutlined,
     needShowSideMenu: true
   }
 ];

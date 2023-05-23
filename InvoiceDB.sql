@@ -69,29 +69,20 @@ WHERE NOT EXISTS(
 )
 END
 
-CREATE PROCEDURE sp_InvoiceInsertForWeb @InvoiceNumber VARCHAR(20), @InvoiceDate DATE, @TaxCode VARCHAR(20), @SubTotal BIGINT, @Vat BIGINT, @Total BIGINT, @FileInvoice VARCHAR(MAX) AS
-BEGIN
-INSERT
-Invoices (InvoiceNumber, InvoiceDate, TaxCode, SubTotal, Vat, Total, FileInvoice) 
-VALUES 
-(@InvoiceNumber, @InvoiceDate, @TaxCode, ISNULL(@SubTotal,NULL), ISNULL(@Vat,NULL), @Total, @FileInvoice)
-END
-
-ALTER PROCEDURE sp_InvoiceInsert @InvoiceNumber VARCHAR(20), @InvoiceDate DATE, @SellerName NVARCHAR(1000), @TaxCode VARCHAR(20), @SubTotal BIGINT, @Vat BIGINT, @Total BIGINT, @FileInvoice VARCHAR(MAX) AS
+ALTER PROCEDURE sp_InvoiceInsert @InvoiceNumber VARCHAR(20), @InvoiceDate DATE, @TaxCode VARCHAR(20), @SubTotal BIGINT, @Vat BIGINT, @Total BIGINT, @FileInvoice VARCHAR(1000) AS
 BEGIN
 DECLARE @IsHas int = (SELECT COUNT(*) FROM Invoices WHERE InvoiceDate = @InvoiceDate AND TaxCode = @TaxCode AND InvoiceNumber = @InvoiceNumber)
 DECLARE @IsHasSeller int = (SELECT COUNT(*) FROM Sellers WHERE TaxCode = @TaxCode)
-IF(@IsHas = 0) 
-BEGIN
-IF(@IsHasSeller = 0) 
-INSERT Sellers (SellerName, TaxCode) VALUES (ISNULL(@SellerName,NULL), @TaxCode)
-INSERT Invoices (InvoiceNumber, InvoiceDate, TaxCode, SubTotal, Vat, Total, FileInvoice) 
-VALUES 
-(@InvoiceNumber, @InvoiceDate, @TaxCode, ISNULL(@SubTotal,NULL), ISNULL(@Vat,NULL), @Total, @FileInvoice)
-END
+IF(@IsHas = 0 and @IsHasSeller != 0)
+	BEGIN
+		INSERT
+		Invoices (InvoiceNumber, InvoiceDate, TaxCode, SubTotal, Vat, Total, FileInvoice) 
+		VALUES 
+		(@InvoiceNumber, @InvoiceDate, @TaxCode, ISNULL(@SubTotal,NULL), ISNULL(@Vat,NULL), @Total, @FileInvoice)
+	END
 END
 
-CREATE PROCEDURE sp_InvoiceUpdate 
+ALTER PROCEDURE sp_InvoiceUpdate 
     @InvoiceID INT, 
     @InvoiceNumber VARCHAR(20),
     @InvoiceDate DATE, 
@@ -101,21 +92,23 @@ CREATE PROCEDURE sp_InvoiceUpdate
     @Total BIGINT 
 AS
 BEGIN
-    UPDATE Invoices 
-    SET 
-        InvoiceNumber = ISNULL(@InvoiceNumber, InvoiceNumber),
-        InvoiceDate = ISNULL(@InvoiceDate, InvoiceDate),
-        TaxCode = ISNULL(@TaxCode, TaxCode),
-        SubTotal = ISNULL(@SubTotal, SubTotal),
-        Vat = ISNULL(@Vat, Vat),
-        Total = ISNULL(@Total, Total)
-    WHERE InvoiceID = @InvoiceID AND (
-        @InvoiceNumber IS NOT NULL OR
-        @InvoiceDate IS NOT NULL OR
-        @TaxCode IS NOT NULL OR
-        @SubTotal IS NOT NULL OR
-        @Vat IS NOT NULL OR
-        @Total IS NOT NULL
+	DECLARE @IsHas int = (SELECT COUNT(*) FROM Invoices WHERE InvoiceDate = @InvoiceDate AND TaxCode = @TaxCode AND InvoiceNumber = @InvoiceNumber)
+	IF(@IsHas = 0)
+		UPDATE Invoices 
+		SET 
+			InvoiceNumber = ISNULL(@InvoiceNumber, InvoiceNumber),
+			InvoiceDate = ISNULL(@InvoiceDate, InvoiceDate),
+			TaxCode = ISNULL(@TaxCode, TaxCode),
+			SubTotal = ISNULL(@SubTotal, SubTotal),
+			Vat = ISNULL(@Vat, Vat),
+			Total = ISNULL(@Total, Total)
+		WHERE InvoiceID = @InvoiceID AND (
+			@InvoiceNumber IS NOT NULL OR
+			@InvoiceDate IS NOT NULL OR
+			@TaxCode IS NOT NULL OR
+			@SubTotal IS NOT NULL OR
+			@Vat IS NOT NULL OR
+			@Total IS NOT NULL
     )
 END
 
@@ -141,17 +134,23 @@ Where S.RowNum >= @StartRow AND S.RowNum <= @EndRow
 ORDER BY S.RowNum
 END
 
-CREATE PROCEDURE sp_SellerUpdate @SellerID INT, @SellerName NVARCHAR(1000), @TaxCode VARCHAR(20) AS
+ALTER PROCEDURE sp_SellerUpdate @SellerID INT, @SellerName NVARCHAR(1000), @TaxCode VARCHAR(20) AS
 BEGIN
-		DECLARE @InvoiceTaxCode VARCHAR(20) = (SELECT TaxCode FROM Sellers WHERE SellerID = @SellerID) 
-		UPDATE Invoices SET TaxCode = '0' WHERE TaxCode = @InvoiceTaxCode
-        UPDATE Sellers SET SellerName = @SellerName, TaxCode = @TaxCode WHERE SellerID = @SellerID
-		UPDATE Invoices SET TaxCode = @TaxCode WHERE TaxCode = '0'
+		DECLARE @IsHas INT = (SELECT COUNT(1) FROM Sellers WHERE TaxCode = @TaxCode)
+		DECLARE @InvoiceTaxCode VARCHAR(20) = (SELECT TaxCode FROM Sellers WHERE SellerID = @SellerID)
+		IF(@IsHas = 0 OR @InvoiceTaxCode = @TaxCode)
+		BEGIN
+			UPDATE Invoices SET TaxCode = '0' WHERE TaxCode = @InvoiceTaxCode
+			UPDATE Sellers SET SellerName = @SellerName, TaxCode = @TaxCode WHERE SellerID = @SellerID
+			UPDATE Invoices SET TaxCode = @TaxCode WHERE TaxCode = '0'
+		END
 END
 
-CREATE PROCEDURE sp_SellerInsert @SellerName NVARCHAR(1000), @TaxCode VARCHAR(20) AS
+ALTER PROCEDURE sp_SellerInsert @SellerName NVARCHAR(1000), @TaxCode VARCHAR(20) AS
 BEGIN
-	INSERT INTO Sellers (SellerName,TaxCode) values (@SellerName, @TaxCode)
+	DECLARE @IsHas INT = (SELECT COUNT(1) FROM Sellers WHERE TaxCode = @TaxCode)
+	IF(@IsHas = 0)
+		INSERT INTO Sellers (SellerName,TaxCode) values (@SellerName, @TaxCode)
 END
 
 CREATE PROCEDURE sp_SellerGet @PageIndex INT, @PageSize INT AS
@@ -171,6 +170,5 @@ Where S.RowNum >= @StartRow AND S.RowNum <= @EndRow
 ORDER BY S.RowNum
 END
 
-exec sp_InvoiceInsert '00000014', '2023-03-16', N'NGUYỄN', N'010031575', 0, 0, 1400000, '0x'
-
-exec sp_SellerUpdate 1, N'NGUYỄN THỊ SÁU', '1'
+exec sp_SellerUpdate 14,'abcd','8088301285'
+select * from Sellers

@@ -5,6 +5,8 @@
   },
   "DesignProperties": {
     "Title": "ValidationInvoice",
+    "Width": 770,
+    "Height": 930,
     "Theme": "Default",
     "ShowInTaskbar": true,
     "ShowMargin": true,
@@ -13,10 +15,35 @@
   "Data": {
     "components": [
       {
-        "label": "Ngày",
-        "placeholder": "Ngày tạo hóa đơn",
-        "displayMask": "99/99/9999",
+        "tag": "h3",
+        "key": "FileName",
+        "input": false,
+        "tableView": false,
+        "label": "Label",
+        "type": "label"
+      },
+      {
+        "label": "Số hóa đơn",
+        "placeholder": "Số hóa đơn",
         "tableView": true,
+        "validate": {
+          "required": true,
+          "pattern": "\\d+"
+        },
+        "key": "Number",
+        "type": "textfield",
+        "input": true
+      },
+      {
+        "label": "Ngày tạo",
+        "placeholder": "Ngày tạo hóa đơn",
+        "displayMask": "9999/99/99",
+        "tableView": true,
+        "validate": {
+          "required": true,
+          "pattern": "^\\d{4}(0[1-9]|1[0-2])(0[1-9]|[12]\\d|3[01])$",
+          "minLength": 8
+        },
         "key": "Date",
         "type": "textfield",
         "input": true
@@ -26,17 +53,21 @@
         "placeholder": "Mã số thuế",
         "tableView": true,
         "validate": {
-          "required": true
+          "required": true,
+          "pattern": "\\d+"
         },
         "key": "TaxCode",
         "type": "textfield",
         "input": true
       },
       {
-        "label": "Đơn vị kinh doanh",
-        "placeholder": "Đơn vị kinh doanh",
+        "label": "Đơn vị đối tác",
+        "placeholder": "Đơn vị đối tác",
         "tableView": true,
-        "key": "Company",
+        "validate": {
+          "required": true
+        },
+        "key": "SellerName",
         "type": "textfield",
         "input": true
       },
@@ -44,6 +75,10 @@
         "label": "Tổng tiền hàng hóa, dịch vụ",
         "placeholder": "Tổng tiền hàng hóa, dịch vụ",
         "tableView": true,
+        "validate": {
+          "required": true,
+          "pattern": "\\d+"
+        },
         "key": "SubTotal",
         "type": "textfield",
         "input": true
@@ -52,6 +87,10 @@
         "label": "Thuế",
         "placeholder": "Thuế",
         "tableView": true,
+        "validate": {
+          "required": true,
+          "pattern": "\\d+"
+        },
         "key": "Vat",
         "type": "textfield",
         "input": true
@@ -60,18 +99,23 @@
         "label": "Total",
         "placeholder": "Total",
         "tableView": true,
+        "validate": {
+          "required": true,
+          "pattern": "\\d+"
+        },
         "key": "Total",
         "type": "textfield",
         "input": true
       },
       {
-        "label": "Submit",
+        "label": "Next",
+        "showValidations": false,
         "theme": "info",
         "tableView": false,
-        "key": "submit",
+        "key": "next",
         "type": "button",
-        "input": true,
-        "saveOnEnter": false
+        "saveOnEnter": false,
+        "input": true
       }
     ]
   }

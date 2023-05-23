@@ -1,0 +1,32 @@
+.invoices__img {
+  max-width: 100px;
+  max-height: 100px;
+  object-fit: contain;
+}
+
+.home__actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.filter__sections {
+  min-width: 200px;
+}
+
+.buttons__action {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+}
+
+.add__invocie-label {
+  margin-bottom: 12px;
+}
+
+.popup__image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}

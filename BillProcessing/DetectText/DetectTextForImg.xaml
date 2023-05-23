@@ -12,7 +12,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>844,2266.4</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>844,1529.6</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>DetectTextForImg_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -56,6 +56,8 @@
       <x:String>System.Security</x:String>
       <x:String>System.ComponentModel</x:String>
       <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -115,9 +117,16 @@
       <AssemblyReference>WindowsBase</AssemblyReference>
       <AssemblyReference>Microsoft.Win32.Primitives</AssemblyReference>
       <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="DetectTextForImg" sap:VirtualizedContainerService.HintSize="583.2,2201.6" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <sap:WorkflowViewStateService.ViewState>
+    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+      <x:Boolean x:Key="ShouldCollapseAll">True</x:Boolean>
+    </scg:Dictionary>
+  </sap:WorkflowViewStateService.ViewState>
+  <Sequence DisplayName="DetectTextForImg" sap:VirtualizedContainerService.HintSize="496,1464.8" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="ui:Image" Name="img" />
       <Variable x:TypeArguments="x:String" Name="invoiceData" />
@@ -128,17 +137,18 @@
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsPinned">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LoadImage DisplayName="Load Image" FileName="[fileImage]" sap:VirtualizedContainerService.HintSize="520.8,85.6" sap2010:WorkflowViewState.IdRef="LoadImage_1" Image="[img]" />
-    <p:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" DisplayName="UiPath Screen OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="520.8,24.8" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_1" Image="[img]" Language="auto" Profile="Screen" Scale="1" Text="[invoiceData]" Timeout="100000" />
-    <ui:Matches BuilderPattern="(?&lt;=Số: |Số : |\(No.\): |\(No.\) : |\(No\): |\(No\) : )\d+" DisplayName="Invoice Number" FirstMatch="[invoiceNumber]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_10" Input="[invoiceData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Số: |Số : |\\(No.\\): |\\(No.\\) : |\\(No\\): |\\(No\\) : )\\d+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=\(No.J: |\(Invoice No.: |S8:|\(No./: |So: |So : |\(No.\). |\(No.\) |\(No.\): |\(No.\) : |\(No\): |\(No\) : |\(Invoice No.\): |\(Invoice No.\) : |\(Invoice No\): |\(Invoice No\) : )\d+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice TaxCode" FirstMatch="[invoiceTaxCode]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=Ma so thue : |Ma so thue: |Ma so thuc: |\(Tax Code\): |\(Tax Code\) : |\(Tar code\): |\(Tax code\): |\(Tax code\) : |fTur codey: )[\d# ]+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice Day" FirstMatch="[day]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(datc\) |\(Dare\) |\(day\) |\(Date\) |Ngay |fdate\) |\(Dute\) |\(core\) )\d+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice Month" FirstMatch="[month]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(movrk\) |\(month\) |\(manth\) |thang |\(monrh\) |\(morth )[\dlI/]+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice Year" FirstMatch="[year]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=Dear\) |Dyear\) |\(year\) |\(ycar\) |nam |fyear\) |\(jexr\) |\(rear\) )\d+" RegexOption="IgnoreCase, Compiled" />
-    <ui:Matches DisplayName="Invoice Subtotal" FirstMatch="[invoiceSubtotal]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_5" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(Pre-tax Tofal\): |\(Sub total\): |\(Pre-tax Total\): |\(Sub t0tal\): |\(Toral amoini\): |Cong tien hang : |Cong tien hang: |tien hang hoa, dich vu: |tien hang hoa, dich vg: |\(Total hefre JAT:: )[\d.,]+" RegexOption="IgnoreCase, Compiled" />
-    <If Condition="[String.IsNullOrEmpty(invoiceSubtotal)]" sap:VirtualizedContainerService.HintSize="520.8,52.8" sap2010:WorkflowViewState.IdRef="If_1">
+    <ui:LoadImage DisplayName="Load Image" FileName="[fileImage]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="LoadImage_1" Image="[img]" />
+    <p:UiPathScreenOCR ApiKey="{x:Null}" Endpoint="{x:Null}" Output="{x:Null}" PredictionId="{x:Null}" UseLocalServer="{x:Null}" ComputeSkewAngle="False" DisplayName="UiPath Screen OCR" ExtractWords="True" sap:VirtualizedContainerService.HintSize="433.6,24.8" sap2010:WorkflowViewState.IdRef="UiPathScreenOCR_1" Image="[img]" Language="auto" Profile="Screen" Scale="1" Text="[invoiceData]" Timeout="100000" />
+    <ui:Matches BuilderPattern="(?&lt;=Số: |Số : |\(No.\): |\(No.\) : |\(No\): |\(No\) : )\d+" DisplayName="Invoice Number" FirstMatch="[invoiceNumber]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="Matches_10" Input="[invoiceData]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=Số: |Số : |\\(No.\\): |\\(No.\\) : |\\(No\\): |\\(No\\) : )\\d+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=\(No.J: |\(Invoice No.: |S8:|\(No./: |So: |So : |\(No.\). |\(No.\) |\(No.\): |\(No.\) : |\(No\): |\(No\) : |\(Invoice No.\): |\(Invoice No.\) : |\(Invoice No\): |\(Invoice No\) : )\d+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches DisplayName="Invoice TaxCode" FirstMatch="[invoiceTaxCode]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=Ma so thue : |Ma so thue: |Ma so thuc: |\(Tax Code\): |\(Tax Code\) : |\(Tar code\): |\(Tax code\): |\(Tax code\) : |fTur codey: )[\d# ]+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches DisplayName="Invoice Day" FirstMatch="[day]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(datc\) |\(Dare\) |\(day\) |\(Date\) |Ngay |fdate\) |\(Dute\) |\(core\) )\d+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches DisplayName="Invoice Month" FirstMatch="[month]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(movrk\) |\(month\) |\(manth\) |thang |\(monrh\) |\(morth )[\dlI/]+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches DisplayName="Invoice Year" FirstMatch="[year]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=Dear\) |Dyear\) |\(year\) |\(ycar\) |nam |fyear\) |\(jexr\) |\(rear\) )\d+" RegexOption="IgnoreCase, Compiled" />
+    <ui:Matches DisplayName="Invoice Subtotal" FirstMatch="[invoiceSubtotal]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="Matches_5" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(Pre-tax Tofal\): |\(Sub total\): |\(Pre-tax Total\): |\(Sub t0tal\): |\(Toral amoini\): |Cong tien hang : |Cong tien hang: |tien hang hoa, dich vu: |tien hang hoa, dich vg: |\(Total hefre JAT:: )[\d.,]+" RegexOption="IgnoreCase, Compiled" />
+    <If Condition="[String.IsNullOrEmpty(invoiceSubtotal)]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="If_1">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -146,7 +156,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_2">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -166,8 +176,8 @@
         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3" />
       </If.Else>
     </If>
-    <ui:Matches DisplayName="Invoice VAT" FirstMatch="[invoiceVat]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(VA77: |\(VAT amount\): |GTGT \(VAT\): |GTGT/VAT amount\): |\(VAT amomni\): |thue GTGT : |thue GTGT: |1'AT UmermIl: )[\d.,]+" RegexOption="IgnoreCase, Compiled" />
-    <If Condition="[String.IsNullOrEmpty(invoiceVat)]" sap:VirtualizedContainerService.HintSize="520.8,52.8" sap2010:WorkflowViewState.IdRef="If_2">
+    <ui:Matches DisplayName="Invoice VAT" FirstMatch="[invoiceVat]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(VA77: |\(VAT amount\): |GTGT \(VAT\): |GTGT/VAT amount\): |\(VAT amomni\): |thue GTGT : |thue GTGT: |1'AT UmermIl: )[\d.,]+" RegexOption="IgnoreCase, Compiled" />
+    <If Condition="[String.IsNullOrEmpty(invoiceVat)]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="If_2">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -175,7 +185,7 @@
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
       <If.Then>
-        <Sequence sap:VirtualizedContainerService.HintSize="476.8,171.2" sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <Sequence sap:VirtualizedContainerService.HintSize="300,80" sap2010:WorkflowViewState.IdRef="Sequence_4">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -195,8 +205,8 @@
         <Sequence sap2010:WorkflowViewState.IdRef="Sequence_5" />
       </If.Else>
     </If>
-    <ui:Matches DisplayName="Invoice Total" FirstMatch="[invoiceTotal]" sap:VirtualizedContainerService.HintSize="520.8,60" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(Torat parmentt: |\(Tatal parment\): |\(Amoumi totul\): |\(Total: |\(Amount tatalJ: |thanh toan: |forot payment\): |\(Total payment\): |\(Tatat payment\): |\(Total\): |\(Totat payment\): |thanh toan : | (Total pajment): |\(Amount total\): |/Tatal umounty: |\(Total Amoun\): |\(Total pajment\): )[\d ,.]+" RegexOption="IgnoreCase, Compiled" />
-    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[invoiceTaxCode.Replace(&quot; &quot;,&quot;&quot;).Replace(&quot; &quot;,&quot;&quot;).Replace(&quot;#&quot;,&quot;0&quot;).Trim]" sap:VirtualizedContainerService.HintSize="520.8,617.6" sap2010:WorkflowViewState.IdRef="Switch`1_2">
+    <ui:Matches DisplayName="Invoice Total" FirstMatch="[invoiceTotal]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[invoiceData]" IsBuilderTabModified="False" Pattern="(?&lt;=\(Torat parmentt: |\(Tatal parment\): |\(Amoumi totul\): |\(Total: |\(Amount tatalJ: |thanh toan: |forot payment\): |\(Total payment\): |\(Tatat payment\): |\(Total\): |\(Totat payment\): |thanh toan : | (Total pajment): |\(Amount total\): |/Tatal umounty: |\(Total Amoun\): |\(Total pajment\): )[\d ,.]+" RegexOption="IgnoreCase, Compiled" />
+    <Switch x:TypeArguments="x:String" DisplayName="Switch" Expression="[invoiceTaxCode.Replace(&quot; &quot;,&quot;&quot;).Replace(&quot; &quot;,&quot;&quot;).Replace(&quot;#&quot;,&quot;0&quot;).Trim]" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="Switch`1_4">
       <Switch.Default>
         <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_3">
           <Assign.To>
@@ -211,7 +221,7 @@
       </Switch.Default>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
           <x:Boolean x:Key="IsPinned">False</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
@@ -223,7 +233,7 @@
           <InArgument x:TypeArguments="x:String">CÔNG TY TNHH MINH QUÂN MQB</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="8009054149" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign x:Key="8009054149" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_5">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -231,7 +241,7 @@
           <InArgument x:TypeArguments="x:String">NGUYỄN ĐỨC TÀU</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="0107718107" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign x:Key="0107718107" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_6">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -239,7 +249,7 @@
           <InArgument x:TypeArguments="x:String">CÔNG TY TNHH ĐIỆN TỬ HATAGROUP VIỆT NAM</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="0107396499" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign x:Key="0107396499" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_7">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -247,7 +257,7 @@
           <InArgument x:TypeArguments="x:String">CÔNG TY CỔ PHẦN TỰ ĐỘNG HÓA TOÀN CẦU</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="0101459199" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign x:Key="0101459199" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_8">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -263,7 +273,7 @@
           <InArgument x:TypeArguments="x:String">CỬA HÀNG THIẾT BỊ DỤNG CỤ ĐIỆN, ĐIỆN TỬ VIỄN THÔNG NGUYỄN THỊ HƯỜNG</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="0106356768" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign x:Key="0106356768" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_9">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -271,7 +281,7 @@
           <InArgument x:TypeArguments="x:String">CÔNG TY TNHH MLAB</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="0100181575" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign x:Key="0100181575" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_11">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -279,7 +289,7 @@
           <InArgument x:TypeArguments="x:String">NGUYỄN THỊ SÁU</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="8155452405" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_12">
+      <Assign x:Key="8155452405" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_12">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -287,7 +297,7 @@
           <InArgument x:TypeArguments="x:String">NGUYỄN THỊ TUYẾT</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="0102917980" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_13">
+      <Assign x:Key="0102917980" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_13">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -295,7 +305,7 @@
           <InArgument x:TypeArguments="x:String">CÔNG TY CỔ PHẦN ĐẦU TƯ THƯƠNG MẠI H2K VIỆT NAM</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="8088301285" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_14">
+      <Assign x:Key="8088301285" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_14">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -303,7 +313,7 @@
           <InArgument x:TypeArguments="x:String">MẠC THỊ HOAN</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="2300974247" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_15">
+      <Assign x:Key="2300974247" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_15">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -311,7 +321,7 @@
           <InArgument x:TypeArguments="x:String">CÔNG TY TNHH VT BẮC VIỆT</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="0110104379" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_16">
+      <Assign x:Key="0110104379" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_16">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -319,7 +329,7 @@
           <InArgument x:TypeArguments="x:String">CÔNG TY CỔ PHẦN ĐIỆN TỬ PICKNPLACE VIỆT NAM</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="0314661699" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_17">
+      <Assign x:Key="0314661699" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_17">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -327,7 +337,7 @@
           <InArgument x:TypeArguments="x:String">CÔNG TY TNHH XUẤT NHẬP KHẨU BANGDA</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="0101444675" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_18">
+      <Assign x:Key="0101444675" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_18">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -335,7 +345,7 @@
           <InArgument x:TypeArguments="x:String">NGUYỄN TRỌNG HIỆP</InArgument>
         </Assign.Value>
       </Assign>
-      <Assign x:Key="0102892824" sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_21">
+      <Assign x:Key="0102892824" sap:VirtualizedContainerService.HintSize="433.6,80.8" sap2010:WorkflowViewState.IdRef="Assign_21">
         <Assign.To>
           <OutArgument x:TypeArguments="x:String">[invoiceSellerName]</OutArgument>
         </Assign.To>
@@ -344,14 +354,14 @@
         </Assign.Value>
       </Assign>
     </Switch>
-    <Assign sap:VirtualizedContainerService.HintSize="520.8,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign sap:VirtualizedContainerService.HintSize="433.6,81.6" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:String">[invoiceDate]</OutArgument>
       </Assign.To>
       <Assign.Value>
-        <InArgument x:TypeArguments="x:String">[year+"-"+month.Replace("/","11")+"-"+day]</InArgument>
+        <InArgument x:TypeArguments="x:String">[year+month.Replace("/","11")+day]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="UnitTest\invoice-data.txt" sap:VirtualizedContainerService.HintSize="520.8,134.4" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[invoiceData]" />
+    <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName="UnitTest\invoice-data.txt" sap:VirtualizedContainerService.HintSize="433.6,52.8" sap2010:WorkflowViewState.IdRef="WriteTextFile_1" Text="[invoiceData]" />
   </Sequence>
 </Activity>
