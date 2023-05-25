@@ -3,6 +3,12 @@ const sql = require('mssql')
 const config = require("../config/index")
 const uploadCloud = require("../middlewares/cloudinary")
 
+const convertDate = (dateString) => {
+  const parts = dateString.split('-');
+  const convertedDate = `${parts[2]}-${parts[1]}-${parts[0]}`;
+  return convertedDate;
+}
+
 // Get invoices
 router.get("/", async (req, res) => {
   const pool = await sql.connect(config);
@@ -28,10 +34,10 @@ router.post("/", uploadCloud.single("image"), async (req, res) => {
 
     // create table variable
     const table = new sql.Table('TableData');
-    table.columns.add('InvoiceNumber', sql.VarChar(20));
+    table.columns.add('InvoiceNumber', sql.VarChar(100));
     table.columns.add('InvoiceDate', sql.Date);
-    table.columns.add('TaxCode', sql.VarChar(20));
-    table.columns.add('SellerName', sql.NVarChar(1000));
+    table.columns.add('TaxCode', sql.VarChar(100));
+    table.columns.add('SellerName', sql.NVarChar(2000));
     table.columns.add('SubTotal', sql.BigInt);
     table.columns.add('Vat', sql.BigInt);
     table.columns.add('Total', sql.BigInt);
@@ -65,9 +71,9 @@ router.put("/:id", async (req, res) => {
     const invoiceId = req.params.id
     const { invoiceNumber, invoiceDate, taxCode, subTotal, vat, total } = req.body
     request.input('InvoiceID', sql.Int, +invoiceId);
-    request.input('InvoiceNumber', sql.NVarChar(20), invoiceNumber);
+    request.input('InvoiceNumber', sql.NVarChar(100), invoiceNumber);
     request.input('InvoiceDate', sql.Date, invoiceDate);
-    request.input('TaxCode', sql.VarChar(20), taxCode);
+    request.input('TaxCode', sql.VarChar(100), taxCode);
     request.input('SubTotal', sql.Int, +subTotal);
     request.input('Vat', sql.Int, +vat);
     request.input('Total', sql.Int, +total);

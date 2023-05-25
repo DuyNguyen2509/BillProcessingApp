@@ -19,16 +19,16 @@ GO
 -- Tạo bảng khách hàng
 CREATE TABLE Sellers (
   SellerID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-  [SellerName] NVARCHAR(1000),
-  [TaxCode] VARCHAR(20) UNIQUE NOT NULL
+  [SellerName] NVARCHAR(2000),
+  [TaxCode] VARCHAR(100) UNIQUE NOT NULL
 );
 
 -- Tạo bảng hóa đơn
 CREATE TABLE Invoices (
   InvoiceID INT PRIMARY KEY IDENTITY(1,1) NOT NULL,
-  InvoiceNumber VARCHAR(20),
+  InvoiceNumber VARCHAR(100),
   InvoiceDate DATE NOT NULL,
-  TaxCode VARCHAR(20) NOT NULL,
+  TaxCode VARCHAR(100) NOT NULL,
   SubTotal BIGINT,
   Vat BIGINT,
   Total BIGINT NOT NULL,
@@ -37,15 +37,17 @@ CREATE TABLE Invoices (
 );
 
 CREATE TYPE TableData AS TABLE (
-  InvoiceNumber VARCHAR(20),
+  InvoiceNumber VARCHAR(100),
   InvoiceDate DATE,
-  TaxCode VARCHAR(20),
-  [SellerName] NVARCHAR(1000),
+  TaxCode VARCHAR(100),
+  [SellerName] NVARCHAR(2000),
   SubTotal BIGINT,
   Vat BIGINT,
   Total BIGINT,
   [FileInvoice] VARCHAR(MAX) 
 );
+
+INSERT INTO Sellers (SellerName,TaxCode) VALUES ('','0')
 
 CREATE PROCEDURE sp_InvoiceInsertTable @Data TableData READONLY AS
 BEGIN
@@ -69,7 +71,7 @@ WHERE NOT EXISTS(
 )
 END
 
-ALTER PROCEDURE sp_InvoiceInsert @InvoiceNumber VARCHAR(20), @InvoiceDate DATE, @TaxCode VARCHAR(20), @SubTotal BIGINT, @Vat BIGINT, @Total BIGINT, @FileInvoice VARCHAR(1000) AS
+CREATE PROCEDURE sp_InvoiceInsert @InvoiceNumber VARCHAR(100), @InvoiceDate DATE, @TaxCode VARCHAR(100), @SubTotal BIGINT, @Vat BIGINT, @Total BIGINT, @FileInvoice VARCHAR(1000) AS
 BEGIN
 DECLARE @IsHas int = (SELECT COUNT(*) FROM Invoices WHERE InvoiceDate = @InvoiceDate AND TaxCode = @TaxCode AND InvoiceNumber = @InvoiceNumber)
 DECLARE @IsHasSeller int = (SELECT COUNT(*) FROM Sellers WHERE TaxCode = @TaxCode)
@@ -92,23 +94,21 @@ ALTER PROCEDURE sp_InvoiceUpdate
     @Total BIGINT 
 AS
 BEGIN
-	DECLARE @IsHas int = (SELECT COUNT(*) FROM Invoices WHERE InvoiceDate = @InvoiceDate AND TaxCode = @TaxCode AND InvoiceNumber = @InvoiceNumber)
-	IF(@IsHas = 0)
-		UPDATE Invoices 
-		SET 
-			InvoiceNumber = ISNULL(@InvoiceNumber, InvoiceNumber),
-			InvoiceDate = ISNULL(@InvoiceDate, InvoiceDate),
-			TaxCode = ISNULL(@TaxCode, TaxCode),
-			SubTotal = ISNULL(@SubTotal, SubTotal),
-			Vat = ISNULL(@Vat, Vat),
-			Total = ISNULL(@Total, Total)
-		WHERE InvoiceID = @InvoiceID AND (
-			@InvoiceNumber IS NOT NULL OR
-			@InvoiceDate IS NOT NULL OR
-			@TaxCode IS NOT NULL OR
-			@SubTotal IS NOT NULL OR
-			@Vat IS NOT NULL OR
-			@Total IS NOT NULL
+    UPDATE Invoices 
+    SET 
+        InvoiceNumber = ISNULL(@InvoiceNumber, InvoiceNumber),
+        InvoiceDate = ISNULL(@InvoiceDate, InvoiceDate),
+        TaxCode = ISNULL(@TaxCode, TaxCode),
+        SubTotal = ISNULL(@SubTotal, SubTotal),
+        Vat = ISNULL(@Vat, Vat),
+        Total = ISNULL(@Total, Total)
+    WHERE InvoiceID = @InvoiceID AND (
+        @InvoiceNumber IS NOT NULL OR
+        @InvoiceDate IS NOT NULL OR
+        @TaxCode IS NOT NULL OR
+        @SubTotal IS NOT NULL OR
+        @Vat IS NOT NULL OR
+        @Total IS NOT NULL
     )
 END
 
@@ -134,10 +134,10 @@ Where S.RowNum >= @StartRow AND S.RowNum <= @EndRow
 ORDER BY S.RowNum
 END
 
-ALTER PROCEDURE sp_SellerUpdate @SellerID INT, @SellerName NVARCHAR(1000), @TaxCode VARCHAR(20) AS
+CREATE PROCEDURE sp_SellerUpdate @SellerID INT, @SellerName NVARCHAR(2000), @TaxCode VARCHAR(100) AS
 BEGIN
 		DECLARE @IsHas INT = (SELECT COUNT(1) FROM Sellers WHERE TaxCode = @TaxCode)
-		DECLARE @InvoiceTaxCode VARCHAR(20) = (SELECT TaxCode FROM Sellers WHERE SellerID = @SellerID)
+		DECLARE @InvoiceTaxCode VARCHAR(100) = (SELECT TaxCode FROM Sellers WHERE SellerID = @SellerID)
 		IF(@IsHas = 0 OR @InvoiceTaxCode = @TaxCode)
 		BEGIN
 			UPDATE Invoices SET TaxCode = '0' WHERE TaxCode = @InvoiceTaxCode
@@ -146,7 +146,7 @@ BEGIN
 		END
 END
 
-ALTER PROCEDURE sp_SellerInsert @SellerName NVARCHAR(1000), @TaxCode VARCHAR(20) AS
+CREATE PROCEDURE sp_SellerInsert @SellerName NVARCHAR(2000), @TaxCode VARCHAR(100) AS
 BEGIN
 	DECLARE @IsHas INT = (SELECT COUNT(1) FROM Sellers WHERE TaxCode = @TaxCode)
 	IF(@IsHas = 0)
@@ -169,6 +169,3 @@ FROM(
 Where S.RowNum >= @StartRow AND S.RowNum <= @EndRow
 ORDER BY S.RowNum
 END
-
-exec sp_SellerUpdate 14,'abcd','8088301285'
-select * from Sellers

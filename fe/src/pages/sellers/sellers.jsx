@@ -1,6 +1,6 @@
 import './serllers.scss';
 import { Table, Tooltip, Modal, notification, Button, Input } from 'antd';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { httpGet, httpPut, httpPost } from '../../services';
 import { PlusOutlined, EditOutlined } from '@ant-design/icons';
 import ExcelJS from 'exceljs';
@@ -12,11 +12,16 @@ const Sellers = () => {
   const [selectedSellerId, setSelectedSellerId] = useState();
   const [openUpsertSellerModal, setOpenUpsertSellerModal] = useState(false);
   const [searchValue, setSearchValue] = useState('');
-  const sellerNameRef = useRef();
-  const taxCodeRef = useRef();
+  const [sellerName, setSellerName] = useState();
+  const [taxCode, setTaxCode] = useState();
   useEffect(() => {
     fetchSellers();
   }, []);
+
+  const fillUpData = selectedSeller => {
+    setSellerName(selectedSeller.SellerName);
+    setTaxCode(selectedSeller.TaxCode);
+  };
 
   const fetchSellers = async () => {
     const { data } = await httpGet('/sellers');
@@ -53,6 +58,7 @@ const Sellers = () => {
                     onClick={() => {
                       setSelectedSellerId(item.SellerID);
                       setOpenUpsertSellerModal(true);
+                      fillUpData(item);
                     }}
                   />
                 </Tooltip>
@@ -70,8 +76,6 @@ const Sellers = () => {
       return;
     }
 
-    const sellerName = sellerNameRef.current.input.value;
-    const taxCode = taxCodeRef.current.input.value;
     const data = await httpPut(`/sellers/${id}`, { sellerName, taxCode });
     const { success } = data;
     if (success) {
@@ -97,8 +101,6 @@ const Sellers = () => {
   };
 
   const handleAddSeller = async () => {
-    const sellerName = sellerNameRef.current.input.value;
-    const taxCode = taxCodeRef.current.input.value;
     const data = await httpPost(`/sellers`, { sellerName, taxCode });
     const { success } = data;
     if (success) {
@@ -107,6 +109,11 @@ const Sellers = () => {
         message: 'Thêm đơn vị đối tác thành công'
       });
       fetchSellers();
+    } else {
+      notification.error({
+        title: 'Thất bại',
+        message: 'Thêm đơn vị đối tác Thất bại'
+      });
     }
     setOpenUpsertSellerModal(false);
   };
@@ -136,6 +143,11 @@ const Sellers = () => {
     });
   };
 
+  const refreshData = () => {
+    setSellerName();
+    setTaxCode();
+  };
+
   return (
     <div className="sellers__container">
       <div className="sellers__add-btn">
@@ -162,14 +174,19 @@ const Sellers = () => {
         onCancel={() => {
           setOpenUpsertSellerModal(false);
           setSelectedSellerId();
+          refreshData();
         }}
         okText={selectedSellerId ? 'Sửa' : 'Thêm'}
         cancelText="Huỷ"
       >
         <div className="add__seller-label">Tên đơn vị đối tác:</div>
-        <Input placeholder="Vui lòng nhập tên đơn vị đối tác" ref={sellerNameRef} />
+        <Input
+          placeholder="Vui lòng nhập tên đơn vị đối tác"
+          value={sellerName}
+          onChange={e => setSellerName(e.target.value)}
+        />
         <div className="add__seller-label">Mã số thuế:</div>
-        <Input placeholder="Vui lòng nhập mã số thuế" ref={taxCodeRef} />
+        <Input placeholder="Vui lòng nhập mã số thuế" value={taxCode} onChange={e => setTaxCode(e.target.value)} />
       </Modal>
     </div>
   );

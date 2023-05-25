@@ -78,21 +78,6 @@ const StatisticPage = () => {
         }, {});
         break;
 
-      case '3months':
-        data = invoicesList.reduce((acc, obj) => {
-          const date = new Date(obj.InvoiceDate);
-          const month = date.getMonth() + 1; // Month number (1-based)
-          const year = date.getFullYear();
-          const period = `${month}/${year}`;
-          const total = parseFloat(obj.Total);
-          if (!acc[period]) {
-            acc[period] = 0;
-          }
-          acc[period] += total;
-          return acc;
-        }, {});
-        break;
-
       case 'year':
         data = invoicesList.reduce((acc, obj) => {
           const year = new Date(obj.InvoiceDate).getFullYear();
@@ -174,7 +159,7 @@ const StatisticPage = () => {
 
   return (
     <div className="statistic__container">
-      <div className="statistic__title">Bảng thống kê chi phí</div>
+      <div className="statistic__title">Bảng thống kê doanh thu</div>
       <div className="statistic__filter">
         <Button type="primary" onClick={handleCreateExcel}>
           Tải excel
@@ -185,9 +170,6 @@ const StatisticPage = () => {
           </option>
           <option value="month" className="statistic__option">
             Tháng
-          </option>
-          <option value="3months" className="statistic__option">
-            Quý
           </option>
           <option value="year" className="statistic__option">
             Năm

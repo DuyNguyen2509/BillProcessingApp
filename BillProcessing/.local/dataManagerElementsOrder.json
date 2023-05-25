@@ -12,6 +12,8 @@
       "Path": "Main.xaml",
       "SortBy": 0,
       "VariablesSectionElementsOrder": [
+        "index&Sequence_1",
+        "dataExcel&Sequence_1",
         "selectedFile&Sequence_28",
         "ChosenButton&Sequence_1",
         "status&Sequence_25",
@@ -88,7 +90,11 @@
     {
       "Path": "Test.xaml",
       "SortBy": 0,
-      "VariablesSectionElementsOrder": [],
+      "VariablesSectionElementsOrder": [
+        "data&Sequence_1",
+        "dataNumber&Sequence_1",
+        "selectedFile&Sequence_2"
+      ],
       "ArgumentsSectionElementsOrder": [],
       "ConstantsSectionElementsOrder": [],
       "AddedNamespaces": null

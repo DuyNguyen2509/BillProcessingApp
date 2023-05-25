@@ -28,5 +28,11 @@
 .popup__image {
   width: 100%;
   aspect-ratio: 1/1;
-  object-fit: cover;
+  // height: 100%;
+  object-fit: contain;
+}
+
+.invoice__taxcode-select {
+  min-width: 200px;
+  margin-bottom: 12px;
 }

@@ -15,24 +15,45 @@ router.get("/", async (req, res) => {
   })
 })
 
-// Create sellers
-router.post("/", async (req, res) => {
+router.get("/taxcode", async (req, res) => {
   const pool = await sql.connect(config);
   const request = pool.request()
-  const { sellerName, taxCode } = req.body 
 
-  request.input('CustomerID', sql.Int, 1);
-  request.input('SellerName', sql.NVarChar(20), sellerName);
-  request.input('TaxCode', sql.NVarChar(20), taxCode);
- 
-  const result = await request.query`INSERT INTO SELLERS(SellerName, TaxCode) VALUES(@SellerName, @TaxCode)`
-  const { rowsAffected } = result
+  const result = await request.query`SELECT DISTINCT TaxCode FROM Sellers WHERE TaxCode <> '0'`
 
   sql.close();
   return res.json({
-    success: rowsAffected[0] === 1, 
+    success: !!result.recordset?.length, 
     data: result.recordset
   })
+})
+
+// Create sellers
+router.post("/", async (req, res) => {
+  try {
+    const pool = await sql.connect(config);
+    const request = pool.request()
+    const { sellerName, taxCode } = req.body 
+
+    request.input('CustomerID', sql.Int, 1);
+    request.input('SellerName', sql.NVarChar(2000), sellerName);
+    request.input('TaxCode', sql.NVarChar(20), taxCode);
+  
+    const result = await request.query`INSERT INTO SELLERS(SellerName, TaxCode) VALUES(@SellerName, @TaxCode)`
+    const { rowsAffected } = result
+
+    sql.close();
+    return res.json({
+      success: rowsAffected[0] === 1, 
+      data: result.recordset
+    })
+  } catch (error) {
+    
+    return res.json({
+      success: false, 
+      err: error
+    })
+  }
 })
 
 // Update sellers
@@ -44,10 +65,9 @@ router.put("/:id", async (req, res) => {
     const { sellerName, taxCode } = req.body 
 
     request.input('SellerID', sql.Int, +id);
-    request.input('SellerName', sql.NVarChar(20), sellerName);
-    request.input('TaxCode', sql.VarChar(20), taxCode);
+    request.input('SellerName', sql.NVarChar(2000), sellerName);
+    request.input('TaxCode', sql.VarChar(100), taxCode);
 
-    console.log('request :>> ', request);
     const result = await request.execute('sp_SellerUpdate');
     const { rowsAffected } = result
 

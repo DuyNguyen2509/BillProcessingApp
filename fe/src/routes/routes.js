@@ -14,7 +14,7 @@ const publicRoutes = [
   {
     path: config.routes.sellers,
     element: Sellers,
-    label: 'Đơn vị đối tác',
+    label: 'Đơn vị bán hàng',
     pageIcon: UserOutlined,
     needShowSideMenu: true
   },

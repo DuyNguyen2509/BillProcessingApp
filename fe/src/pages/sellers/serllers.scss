@@ -40,5 +40,11 @@
     input {
       margin-bottom: 20px;
     }
+    .ant-picker-input input {
+      margin-bottom: 0px;
+    }
+    .ant-picker {
+      margin-bottom: 20px;
+    }
   }
 }

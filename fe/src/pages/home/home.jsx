@@ -1,19 +1,16 @@
 import './home.scss';
-import { Table, Button, Slider, Input, Modal, notification, Tooltip } from 'antd';
+import { Table, Button, Input, Modal, notification, Tooltip, Select, DatePicker } from 'antd';
 import { useEffect, useState } from 'react';
 import { httpGet, httpUpload, httpPut } from '../../services';
 import ExcelJS from 'exceljs';
 import { EditOutlined } from '@ant-design/icons';
+import dayjs from 'dayjs';
 
 const { Search } = Input;
-const marks = {
-  0: '0',
-  1000000: '1000000'
-};
+const { Option } = Select;
 
 const Home = () => {
   const [invoicesList, setInvoicesList] = useState([]);
-  const [totalInvocieValue, setTotalInvocieValue] = useState(0);
   const [searchValue, setSearchValue] = useState('');
   const [selectedInvoiceId, setSelectedInvoiceId] = useState();
   const [openUpsertInvocieModal, setOpenUpsertInvocieModal] = useState(false);
@@ -26,16 +23,41 @@ const Home = () => {
   const [total, setTotal] = useState();
   const [sellerName, setSellerName] = useState();
   const [vat, setVat] = useState();
+  const [taxCodeTypes, setTaxCodeTypes] = useState([]);
+  const [sellersList, setSellersList] = useState([]);
 
   useEffect(() => {
     fetchInvoices();
+    fetchSellers();
+    fetchTaxcodeType();
   }, []);
+
+  const fetchSellers = async () => {
+    const { data } = await httpGet('/sellers');
+
+    setSellersList(data || []);
+  };
+
+  const fetchTaxcodeType = async () => {
+    const { data } = await httpGet('/sellers/taxcode');
+
+    setTaxCodeTypes(data || []);
+  };
 
   const fetchInvoices = async () => {
     const { data } = await httpGet('/invoices');
 
     setInvoicesList(data || []);
   };
+
+  const formatDate = dateString => {
+    const dateObj = new Date(dateString);
+    const day = String(dateObj.getDate()).padStart(2, '0');
+    const month = String(dateObj.getMonth() + 1).padStart(2, '0');
+    const year = dateObj.getFullYear();
+    return `${day}-${month}-${year}`;
+  };
+
   const columns = [
     {
       title: 'Mã hoá đơn',
@@ -56,7 +78,7 @@ const Home = () => {
       title: 'Ngày hoá đơn',
       dataIndex: 'InvoiceDate',
       key: 'InvoiceDate',
-      render: date => <span style={{ width: 180, display: 'block' }}>{date.split('T')[0]}</span>
+      render: date => <span style={{ width: 180, display: 'block' }}>{formatDate(date)}</span>
     },
     {
       title: 'Mã số thuế',
@@ -150,7 +172,6 @@ const Home = () => {
   };
 
   const produceDataSource = () => {
-    if (totalInvocieValue && !searchValue) return invoicesList.filter(iL => iL.Total <= totalInvocieValue);
     if (searchValue)
       return invoicesList.filter(
         item =>
@@ -170,7 +191,7 @@ const Home = () => {
 
   const fillUpData = currentInvocie => {
     setInvoiceNumber(currentInvocie.InvoiceNumber);
-    setInvocieDate(currentInvocie.InvoiceDate);
+    setInvocieDate(currentInvocie.InvoiceDate?.split('T')[0]);
     setTaxCode(currentInvocie.TaxCode);
     setTotal(currentInvocie.Total);
     setSubTotal(currentInvocie.SubTotal);
@@ -211,7 +232,7 @@ const Home = () => {
     if (success) {
       notification.success({
         title: 'Thành công',
-        message: 'Sửa thành công'
+        message: 'Thêm thành công'
       });
       fetchInvoices();
     }
@@ -234,7 +255,7 @@ const Home = () => {
     if (success) {
       notification.success({
         title: 'Thành công',
-        message: 'Thêm đơn thành công'
+        message: 'Sửa đơn thành công'
       });
       fetchInvoices();
     }
@@ -242,29 +263,13 @@ const Home = () => {
   };
 
   const handleFileChange = e => {
-    setImage(e.target.files);
+    setImage(e.target.files?.[0]);
   };
 
   return (
     <div className="home__container">
       <div className="home__actions">
         <div className="filter__sections">
-          <div className="filter__sections-text">Lọc theo tổng hoá đơn</div>
-          <Slider
-            min={0}
-            max={1000000}
-            tooltip={{
-              open: true
-            }}
-            step={100}
-            defaultValue={0}
-            disabled={false}
-            marks={marks}
-            value={totalInvocieValue}
-            onChange={value => setTotalInvocieValue(value)}
-          />
-
-          <div className="filter__sections-text">Tìm kiếm</div>
           <Search placeholder="Nhập từ khoá để tìm kiếm" allowClear onSearch={onSearch} />
         </div>
         <div className="buttons__action">
@@ -282,7 +287,7 @@ const Home = () => {
       />
 
       <Modal
-        title={selectedInvoiceId ? 'Sửa hóa đơn' : 'Thêm hóa đơn'}
+        title={selectedInvoiceId ? 'Sửa hoá đơn' : 'Thêm hoá đơn'}
         open={openUpsertInvocieModal}
         onOk={() => {
           selectedInvoiceId ? handleUpdateInvocie(selectedInvoiceId) : handleAddInvocie();
@@ -302,28 +307,38 @@ const Home = () => {
           value={invoiceNumber}
           onChange={e => setInvoiceNumber(e.target.value)}
         />
-        {!selectedInvoiceId && (
-          <>
-            <div className="add__invocie-label">Tên đối tác:</div>
-            <Input
-              placeholder="Vui lòng nhập tên đối tác"
-              value={sellerName}
-              onChange={e => setSellerName(e.target.value)}
-            />
-          </>
-        )}
         <div className="add__invocie-label">Ngày hoá đơn:</div>
-        <Input
+        {/* <Input
           placeholder="Vui lòng nhập ngày hoá đơn"
           value={invoiceDate}
           onChange={e => setInvocieDate(e.target.value)}
+        /> */}
+        <DatePicker
+          defaultValue={invoiceDate ? dayjs(invoiceDate) : ''}
+          onChange={(_, dateString) => {
+            setInvocieDate(dateString);
+          }}
         />
-        {!selectedInvoiceId && (
-          <>
-            <div className="add__invocie-label">Mã số thuế:</div>
-            <Input placeholder="Vui lòng nhập mã số thuế" value={taxCode} onChange={e => setTaxCode(e.target.value)} />
-          </>
-        )}
+
+        <div className="add__invocie-label">Mã số thuế:</div>
+
+        <Select
+          className="invoice__taxcode-select"
+          placeholder="Chọn mã số thuế"
+          value={taxCode}
+          onChange={e => {
+            const selectedSellerName = sellersList.find(iL => iL.TaxCode === e).SellerName;
+            setTaxCode(e);
+            setSellerName(selectedSellerName);
+          }}
+        >
+          {taxCodeTypes.map((it, idx) => (
+            <Option key={idx} value={it.TaxCode}>
+              {it.TaxCode}
+            </Option>
+          ))}
+        </Select>
+
         <div className="add__invocie-label">Tổng hàng hoá:</div>
         <Input placeholder="Vui lòng nhập tổng hàng hoá" value={subTotal} onChange={e => setSubTotal(e.target.value)} />
         <div className="add__invocie-label">Thuế:</div>
@@ -338,7 +353,7 @@ const Home = () => {
         )}
       </Modal>
 
-      <Modal open={!!selectedUrl} onCancel={() => setSelectedUrl('')} footer={null}>
+      <Modal width={800} open={!!selectedUrl} onCancel={() => setSelectedUrl('')} footer={null}>
         <img src={selectedUrl} alt="" className="popup__image" />
       </Modal>
     </div>
