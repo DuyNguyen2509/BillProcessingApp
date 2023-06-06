@@ -29,3 +29,11 @@ export const httpUpload = async (url, body = {}) => {
   }
   return instance.post(url, formData).then(response => response.data);
 };
+
+export const httpPutUpload = async (url, body = {}) => {
+  const formData = new FormData();
+  for (const key in body) {
+    formData.append(key, body[key]);
+  }
+  return instance.put(url, formData).then(response => response.data);
+};

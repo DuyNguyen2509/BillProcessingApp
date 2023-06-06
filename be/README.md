@@ -31,7 +31,7 @@
 
 ## UPDATE INVOICE
 - URL: http://localhost:8001/api/v1/invoices/:id
-- METHOD: PUT
+- METHOD: POST
 - BODY: 
   + invoiceNumber <<"string">> (require)
   + invoiceDate <<"Date">> (require) #YYYY-MM--DD
@@ -40,6 +40,8 @@
   + total <<"number">> (require)
   + vat <<"number">> (require)
   + sellerName <<"string">> (require)
+  + image <<"File">> (require)
+  + backupUrl <<"string">> (require)
 
 
 

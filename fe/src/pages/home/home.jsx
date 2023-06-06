@@ -1,7 +1,7 @@
 import './home.scss';
 import { Table, Button, Input, Modal, notification, Tooltip, Select, DatePicker } from 'antd';
 import { useEffect, useState } from 'react';
-import { httpGet, httpUpload, httpPut } from '../../services';
+import { httpGet, httpUpload, httpPutUpload } from '../../services';
 import ExcelJS from 'exceljs';
 import { EditOutlined } from '@ant-design/icons';
 import dayjs from 'dayjs';
@@ -25,6 +25,7 @@ const Home = () => {
   const [vat, setVat] = useState();
   const [taxCodeTypes, setTaxCodeTypes] = useState([]);
   const [sellersList, setSellersList] = useState([]);
+  const [selectedSellerName, setSelectedSellerName] = useState('all');
 
   useEffect(() => {
     fetchInvoices();
@@ -172,6 +173,9 @@ const Home = () => {
   };
 
   const produceDataSource = () => {
+    if (selectedSellerName && selectedSellerName !== 'all') {
+      return invoicesList.filter(item => item.SellerName?.indexOf(selectedSellerName) >= 0);
+    }
     if (searchValue)
       return invoicesList.filter(
         item =>
@@ -181,11 +185,13 @@ const Home = () => {
           item.SellerName?.indexOf(searchValue) >= 0 ||
           item.SubTotal?.indexOf(searchValue) >= 0
       );
+    if (selectedSellerName === 'all') return invoicesList;
 
     return invoicesList;
   };
 
   const onSearch = value => {
+    setSelectedSellerName('all');
     setSearchValue(value);
   };
 
@@ -207,6 +213,7 @@ const Home = () => {
     setSubTotal();
     setVat();
     setSellerName();
+    setImage();
   };
 
   const handleAddInvocie = async () => {
@@ -241,14 +248,18 @@ const Home = () => {
   };
 
   const handleUpdateInvocie = async id => {
-    const data = await httpPut(`/invoices/${id}`, {
+    const backupUrl = invoicesList.find(iL => iL.InvoiceID === id)?.FileInvoice || '';
+
+    const data = await httpPutUpload(`/invoices/${id}`, {
       sellerName,
       taxCode,
       invoiceNumber,
       invoiceDate,
       total,
       vat,
-      subTotal
+      subTotal,
+      image,
+      backupUrl
     });
 
     const { success } = data;
@@ -270,7 +281,33 @@ const Home = () => {
     <div className="home__container">
       <div className="home__actions">
         <div className="filter__sections">
-          <Search placeholder="Nhập từ khoá để tìm kiếm" allowClear onSearch={onSearch} />
+          <Search
+            placeholder="Nhập từ khoá để tìm kiếm"
+            value={searchValue}
+            onChange={e => setSearchValue(e.target.value)}
+            allowClear
+            onSearch={onSearch}
+          />
+          <Select
+            className="invoice__seller-select"
+            placeholder="Tìm kiếmm theo tên công ty"
+            value={selectedSellerName}
+            onChange={e => {
+              setSearchValue('');
+              setSelectedSellerName(e);
+            }}
+          >
+            <Option value="all">Tìm kiếm theo tên công ty</Option>
+            {Array.from(new Set(sellersList.map(item => item.SellerName)))
+              .map(sellerName => {
+                return sellersList.find(item => item.SellerName === sellerName);
+              })
+              .map((sl, idx) => (
+                <Option key={idx} value={sl.SellerName}>
+                  {sl.SellerName}
+                </Option>
+              ))}
+          </Select>
         </div>
         <div className="buttons__action">
           <Button onClick={() => setOpenUpsertInvocieModal(true)}>Thêm hoá đơn</Button>
@@ -283,7 +320,7 @@ const Home = () => {
         columns={columns}
         dataSource={produceDataSource()}
         rowKey={record => record.InvoiceNumber}
-        scroll={{ y: 'calc(100vh - 320px)' }}
+        scroll={{ y: 'calc(100vh - 220px)' }}
       />
 
       <Modal
@@ -308,11 +345,6 @@ const Home = () => {
           onChange={e => setInvoiceNumber(e.target.value)}
         />
         <div className="add__invocie-label">Ngày hoá đơn:</div>
-        {/* <Input
-          placeholder="Vui lòng nhập ngày hoá đơn"
-          value={invoiceDate}
-          onChange={e => setInvocieDate(e.target.value)}
-        /> */}
         <DatePicker
           defaultValue={invoiceDate ? dayjs(invoiceDate) : ''}
           onChange={(_, dateString) => {
@@ -345,12 +377,8 @@ const Home = () => {
         <Input placeholder="Vui lòng nhập thuế" value={vat} onChange={e => setVat(e.target.value)} />
         <div className="add__invocie-label">Tổng hoá đơn:</div>
         <Input placeholder="Vui lòng nhập tổng hoá đơn" value={total} onChange={e => setTotal(e.target.value)} />
-        {!selectedInvoiceId && (
-          <>
-            <div className="add__invocie-label">Ảnh hoá đơn:</div>
-            <input type="file" onChange={handleFileChange} accept=".jpg,.jpeg,.png,.pdf" />
-          </>
-        )}
+        <div className="add__invocie-label">Ảnh hoá đơn:</div>
+        <input type="file" onChange={handleFileChange} accept=".jpg,.jpeg,.png,.pdf" />
       </Modal>
 
       <Modal width={800} open={!!selectedUrl} onCancel={() => setSelectedUrl('')} footer={null}>

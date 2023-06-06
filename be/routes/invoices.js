@@ -64,12 +64,15 @@ router.post("/", uploadCloud.single("image"), async (req, res) => {
 })
 
 // Update invocies using procedure
-router.put("/:id", async (req, res) => {
+router.put("/:id", uploadCloud.single("image"), async (req, res) => {
   try {
+    const fileInvoice = req?.file?.path
     const pool = await sql.connect(config);
     const request = pool.request();
     const invoiceId = req.params.id
-    const { invoiceNumber, invoiceDate, taxCode, subTotal, vat, total } = req.body
+    const { invoiceNumber, invoiceDate, taxCode, subTotal, vat, total, backupUrl } = req.body
+
+    request.input('FileInvoice', sql.VarChar(sql.MAX), fileInvoice || backupUrl);
     request.input('InvoiceID', sql.Int, +invoiceId);
     request.input('InvoiceNumber', sql.NVarChar(100), invoiceNumber);
     request.input('InvoiceDate', sql.Date, invoiceDate);

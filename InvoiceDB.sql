@@ -91,7 +91,8 @@ ALTER PROCEDURE sp_InvoiceUpdate
     @TaxCode VARCHAR(20), 
     @SubTotal BIGINT, 
     @Vat BIGINT, 
-    @Total BIGINT 
+    @Total BIGINT,
+    @FileInvoice VARCHAR(500) 
 AS
 BEGIN
     UPDATE Invoices 
@@ -101,14 +102,16 @@ BEGIN
         TaxCode = ISNULL(@TaxCode, TaxCode),
         SubTotal = ISNULL(@SubTotal, SubTotal),
         Vat = ISNULL(@Vat, Vat),
-        Total = ISNULL(@Total, Total)
+        Total = ISNULL(@Total, Total),
+        FileInvoice = ISNULL(@FileInvoice, FileInvoice)
     WHERE InvoiceID = @InvoiceID AND (
         @InvoiceNumber IS NOT NULL OR
         @InvoiceDate IS NOT NULL OR
         @TaxCode IS NOT NULL OR
         @SubTotal IS NOT NULL OR
         @Vat IS NOT NULL OR
-        @Total IS NOT NULL
+        @Total IS NOT NULL OR
+        @FileInvoice IS NOT NULL
     )
 END
 
