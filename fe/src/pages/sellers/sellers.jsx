@@ -125,7 +125,7 @@ const Sellers = () => {
     worksheet.columns = [
       { header: 'Mã đối tác', key: 'SellerID', width: 20 },
       { header: 'Tên đối tác', key: 'SellerName', width: 20 },
-      { header: 'Mã số thuế', key: 'TaxCode', width: 20 }
+      { header: 'Mã số thuế', key: 'TaxCode', widAth: 20 }
     ];
 
     sellersList.forEach(item => {
@@ -152,7 +152,7 @@ const Sellers = () => {
     <div className="sellers__container">
       <div className="sellers__add-btn">
         <Search placeholder="Nhập từ khoá để tìm kiếm" style={{ maxWidth: 300 }} allowClear onSearch={onSearch} />
-        <Button onClick={handleCreateExcel}>Tải excel</Button>
+        {/* <Button onClick={handleCreateExcel}>Tải excel</Button> */}
         <Button type="primary" icon={<PlusOutlined />} onClick={() => setOpenUpsertSellerModal(true)}>
           Thêm đơn vị đối tác
         </Button>

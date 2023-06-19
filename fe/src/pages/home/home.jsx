@@ -26,6 +26,7 @@ const Home = () => {
   const [taxCodeTypes, setTaxCodeTypes] = useState([]);
   const [sellersList, setSellersList] = useState([]);
   const [selectedSellerName, setSelectedSellerName] = useState('all');
+  const [unixDate, setUnixDate] = useState();
 
   useEffect(() => {
     fetchInvoices();
@@ -176,6 +177,15 @@ const Home = () => {
     if (selectedSellerName && selectedSellerName !== 'all') {
       return invoicesList.filter(item => item.SellerName?.indexOf(selectedSellerName) >= 0);
     }
+
+    if (unixDate) {
+      return invoicesList.filter(iL => {
+        const invoiceDate = new Date(iL.InvoiceDate);
+
+        return invoiceDate.getTime() === unixDate;
+      });
+    }
+
     if (searchValue)
       return invoicesList.filter(
         item =>
@@ -193,6 +203,7 @@ const Home = () => {
   const onSearch = value => {
     setSelectedSellerName('all');
     setSearchValue(value);
+    setUnixDate();
   };
 
   const fillUpData = currentInvocie => {
@@ -277,6 +288,13 @@ const Home = () => {
     setImage(e.target.files?.[0]);
   };
 
+  const handleSelectDate = (_, dateString) => {
+    const selectedDate = new Date(dateString);
+    setUnixDate(selectedDate.getTime());
+    setSelectedSellerName();
+    setSearchValue('');
+  };
+
   return (
     <div className="home__container">
       <div className="home__actions">
@@ -294,6 +312,7 @@ const Home = () => {
             value={selectedSellerName}
             onChange={e => {
               setSearchValue('');
+              setUnixDate();
               setSelectedSellerName(e);
             }}
           >
@@ -310,6 +329,7 @@ const Home = () => {
           </Select>
         </div>
         <div className="buttons__action">
+          <DatePicker onChange={handleSelectDate} placeholder="Vui lòng chọn ngày" />
           <Button onClick={() => setOpenUpsertInvocieModal(true)}>Thêm hoá đơn</Button>
           <Button onClick={handleCreateExcel} type="primary">
             Xuất excel

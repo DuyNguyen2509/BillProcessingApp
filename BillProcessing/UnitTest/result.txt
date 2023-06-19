@@ -1,13 +1,5 @@
  
 
-Number5TaxCode: 0110104379 
-Ngày:  20230505
-Seller:  CÔNG TY CỔ PHẦN ĐIỆN TỬ PICKNPLACE VIỆT NAM
-Thành tiền: 6.425.000
-VAT:  642.500
- Total: 7.067.500
-
-
 Number: 00000105
 TaxCode: 0101448197
 Ngày:  20220329
@@ -16,18 +8,9 @@ Thành tiền: 0
 VAT:  0
  Total: 11.987.600
 
-Number: 00000027
-TaxCode: 0 1 0 2 8 9 2 8 2 4
+Number00000027TaxCode: 0102892824 
 Ngày:  20230424
-Seller:  CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY DỰNG THƯƠNG MẠI MINH LONG
+Seller:  CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY DỰNG THƯƠNG MẠI MINH LONG
 Thành tiền: 258.336.000
 VAT:  25.833.600
- Total: 284.169.600
-
-Number: 00000027
-TaxCode: 0 1 0 2 8 9 2 8 2 4
-Ngày:  20230424
-Seller:  CÔNG TY CỔ PHẦN ĐẦU TƯ XÂY DỰNG THƯƠNG MẠI MINH LONG
-Thành tiền: 258.336.000
-VAT:  25.833.600
- Total: 284.169.600
+ Total: 284.169.600 

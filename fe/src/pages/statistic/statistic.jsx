@@ -61,7 +61,7 @@ const StatisticPage = () => {
   }, []);
 
   const getChartData = type => {
-    let data = [];
+    let data = {};
 
     switch (type) {
       case 'month':
@@ -70,10 +70,12 @@ const StatisticPage = () => {
           const month = date.getMonth() + 1; // Month number (1-based)
           const year = date.getFullYear();
           const key = `${month}/${year}`;
+
           if (!acc[key]) {
             acc[key] = 0;
           }
           acc[key] += parseFloat(obj.Total);
+
           return acc;
         }, {});
         break;
@@ -81,9 +83,11 @@ const StatisticPage = () => {
       case 'year':
         data = invoicesList.reduce((acc, obj) => {
           const year = new Date(obj.InvoiceDate).getFullYear();
+
           if (!acc[year]) {
             acc[year] = 0;
           }
+
           acc[year] += parseFloat(obj.Total);
           return acc;
         }, {});
@@ -159,7 +163,7 @@ const StatisticPage = () => {
 
   return (
     <div className="statistic__container">
-      <div className="statistic__title">Bảng thống kê doanh thu</div>
+      <div className="statistic__title">Bảng thống kê chi phí</div>
       <div className="statistic__filter">
         <Button type="primary" onClick={handleCreateExcel}>
           Tải excel
